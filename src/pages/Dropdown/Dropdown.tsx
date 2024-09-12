@@ -14,12 +14,23 @@ export function Dropdown() {
 
     useEffect(() => {
         setMounted(true);
+        // Reset all states before animations begin
+        setAnimateCard1(false);
+        setAnimateCard2(false);
+        setAnimateCard3(false);
 
-        // Trigger animations one by one with delays
-        setTimeout(() => setAnimateCard1(true),0); // Card 1 after 200ms
-        setTimeout(() => setAnimateCard2(true), 500); // Card 2 after 500ms
-        setTimeout(() => setAnimateCard3(true), 1200); // Card 3 after 800ms
-    }, []);
+        // Add a slight delay before starting the animations
+        const timer1 = setTimeout(() => setAnimateCard1(true), 50);
+        const timer2 = setTimeout(() => setAnimateCard2(true), 300);
+        const timer3 = setTimeout(() => setAnimateCard3(true), 550);
+
+        // Clean up timeouts on component unmount
+        return () => {
+            clearTimeout(timer1);
+            clearTimeout(timer2);
+            clearTimeout(timer3);
+        };
+    }, []); 
 
     if (!mounted) {
         return null;
@@ -36,7 +47,7 @@ export function Dropdown() {
 
                 {/* Right section */}
                 <div className="w-[50vw] text-[1vw] text-slate-400 font-semibold leading-relaxed p-[2vw] px-[4vw]">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque, in magni eaque reiciendis reprehenderit modi repudiandae rem, ipsa autem numquam alias nobis deleniti, optio laborum!
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 </div>
             </div>
 
