@@ -20,7 +20,7 @@ export function Dropdown() {
         setAnimateCard3(false);
 
         // Add a slight delay before starting the animations
-        const timer1 = setTimeout(() => setAnimateCard1(true), 50);
+        const timer1 = setTimeout(() => setAnimateCard1(true), 0);
         const timer2 = setTimeout(() => setAnimateCard2(true), 300);
         const timer3 = setTimeout(() => setAnimateCard3(true), 550);
 
@@ -47,7 +47,7 @@ export function Dropdown() {
 
                 {/* Right section */}
                 <div className="w-[50vw] text-[1vw] text-slate-400 font-semibold leading-relaxed p-[2vw] px-[4vw]">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus, dolorem inventore beatae debitis expedita, vero a reprehenderit pariatur ipsum odit voluptate temporibus alias eos odio.
                 </div>
             </div>
 
