@@ -1,4 +1,4 @@
-import { Navbar } from "../../../components/Navbar";
+import { Navbar } from "../../pages/Navbar";
 import type { Metadata } from "next";
 import { Roboto_Mono as RobotoMonoFont } from "next/font/google";
 

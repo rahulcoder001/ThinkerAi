@@ -1,7 +1,7 @@
 // App.js
 import React from 'react';
-import GalaxyCanvas from '../../components/Galaxy/page';
-import Main from '../../components/Main/page';
+import GalaxyCanvas from '../../Rootcomponent/Galaxy/page';
+import Main from '../../Rootcomponent/Main/page';
 const App = () => {
   return (
     <div style={{ height: '100vh', width: '100vw',display:'flex' }}>
