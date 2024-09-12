@@ -1,5 +1,5 @@
 
-import { Dropdown } from "../../pages/Dropdown";
+import { Dropdown } from "../../pages/Dropdown/Dropdown";
 
 
 

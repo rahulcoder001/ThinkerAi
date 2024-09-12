@@ -1,7 +1,18 @@
-import React from 'react';
+"use client"
+import React,{useEffect,useState} from 'react';
 import './main.css';
+import dots from "/public/images/dots.png";
+import Image from 'next/image';
 
 const Page = () => {
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    // Set the navbar to visible after a short delay
+    setTimeout(() => {
+      setVisible(true);
+    }, 1000); // Adjust delay as needed
+  }, []);
   return (
     <div>
       <h1 className="heading">
@@ -12,8 +23,8 @@ const Page = () => {
         ))}
       </h1>
       <section className="nav_section">
-        <button className="language">Eng</button>
-        <button className="signin">Sign In</button>
+      <button className={`language ${visible ? 'show' : ''}`}>Eng</button>
+      <button className={`signin ${visible ? 'show' : ''}`}>Sign In</button>
       </section>
       <h1 className='sub_heading'>
         <span className="reveal-sentence">Tailored learning Experiences Crafted by AI</span>
@@ -39,9 +50,16 @@ const Page = () => {
   ))}
 </h1>
 
-<button className='navbar'>
-     
-</button>
+<button className={`navbar ${visible ? 'show' : ''}`}>
+      <Image
+        src={dots}
+        alt='loading-image'
+        style={{ filter: 'invert(1)' }}
+        height={20}
+        width={20}
+      />
+      <h1>Menu</h1>
+    </button>
 
     </div>
   );
