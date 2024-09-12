@@ -7,9 +7,17 @@ import di3img from "../../public/images/div3.png";
 
 export function Dropdown() {
     const [mounted, setMounted] = useState(false);
+    const [animateCard1, setAnimateCard1] = useState(false);
+    const [animateCard2, setAnimateCard2] = useState(false);
+    const [animateCard3, setAnimateCard3] = useState(false);
 
     useEffect(() => {
         setMounted(true);
+
+        // Trigger animations one by one with delays
+        setTimeout(() => setAnimateCard1(true), 200); // Card 1 after 200ms
+        setTimeout(() => setAnimateCard2(true), 400); // Card 2 after 400ms
+        setTimeout(() => setAnimateCard3(true), 600); // Card 3 after 600ms
     }, []);
 
     if (!mounted) {
@@ -34,8 +42,10 @@ export function Dropdown() {
             {/* Cards section */}
             <div className="flex m-[2.5vw] mt-[3vw]">
                 {/* Card 1 */}
-                <div className="relative h-[38vh] w-[22vw] rounded-[1.5vw] mr-[9vw]"
-                    style={{ background: 'linear-gradient(to top, #0a4022, #000000)' }}>
+                <div
+                    className={`relative h-[38vh] w-[22vw] rounded-[1.5vw] mr-[9vw] transition-transform duration-700 ${animateCard1 ? 'translate-y-0 opacity-100' : 'translate-y-[10vh] opacity-0'}`}
+                    style={{ background: 'linear-gradient(to top, #0a4022, #000000)' }}
+                >
                     <p className="text-[1.7vw] text-white p-[1vw]">Adaptive Leadership Framework</p>
                     <p className="text-[0.7vw] text-white opacity-40 px-[1vw]">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
                     <Image alt="image" src={di1img} height={200} width={200} className="w-[8vw] h-[8vw]" />
@@ -47,8 +57,10 @@ export function Dropdown() {
                 </div>
 
                 {/* Card 2 */}
-                <div className="relative h-[38vh] w-[22vw] rounded-[1.5vw] mr-[9vw]"
-                    style={{ background: 'linear-gradient(to bottom, #0a4022, #000000)' }}>
+                <div
+                    className={`relative h-[38vh] w-[22vw] rounded-[1.5vw] mr-[9vw] transition-transform duration-700 ${animateCard2 ? 'translate-y-0 opacity-100' : 'translate-y-[10vh] opacity-0'}`}
+                    style={{ background: 'linear-gradient(to bottom, #0a4022, #000000)' }}
+                >
                     <Image alt="image" src={di2img} height={300} width={300} className="w-[8vw] h-[8vw] p-[1.5vw]" />
                     <p className="text-[1.7vw] text-white px-[1vw]">Adaptive Leadership Framework</p>
                     <p className="text-[0.7vw] text-white opacity-40 p-[1vw]">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
@@ -60,8 +72,10 @@ export function Dropdown() {
                 </div>
 
                 {/* Card 3 */}
-                <div className="relative h-[38vh] w-[22vw] rounded-[1.5vw]"
-                    style={{ background: 'linear-gradient(to top, #4e4b25, #000000)' }}>
+                <div
+                    className={`relative h-[38vh] w-[22vw] rounded-[1.5vw] transition-transform duration-700 ${animateCard3 ? 'translate-y-0 opacity-100' : 'translate-y-[10vh] opacity-0'}`}
+                    style={{ background: 'linear-gradient(to top, #4e4b25, #000000)' }}
+                >
                     <p className="text-[1.7vw] text-white p-[1vw]">Adaptive Leadership Framework</p>
                     <p className="text-[0.7vw] text-white opacity-40 px-[1vw]">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
                     <Image alt="image" src={di3img} height={200} width={200} className="w-[8vw] p-[1vw] h-[8vw]" style={{ filter: 'invert(100%)' }} />
