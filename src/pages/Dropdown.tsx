@@ -76,7 +76,7 @@ export function Dropdown() {
                     className={`relative h-[38vh] w-[22vw] rounded-[1.5vw] transition-transform duration-700 ${animateCard3 ? 'translate-y-0 opacity-100' : 'translate-y-[10vh] opacity-0'}`}
                     style={{ background: 'linear-gradient(to top, #4e4b25, #000000)' }}
                 >
-                    <p className="text-[1.7vw] text-white p-[1vw]">Adaptive Leadership Framework</p>
+                    <p className="text-[1.7vw] text-white p-[1vw]">Adaptive Leadershi Framework</p>
                     <p className="text-[0.7vw] text-white opacity-40 px-[1vw]">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
                     <Image alt="image" src={di3img} height={200} width={200} className="w-[8vw] p-[1vw] h-[8vw]" style={{ filter: 'invert(100%)' }} />
                     <div className="absolute -bottom-[5vh] flex justify-center items-center bg-white rounded-full w-[10vw] h-[10vw] -right-[5vw]">
