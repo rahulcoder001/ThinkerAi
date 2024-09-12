@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Playwrite+CU:wght@100..400&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+body{
+  background-color: black;
+  overflow: hidden;
+  color: white;
+}
+.heading {  
+    font-size: 2.4rem;
+   transform: rotate(-90deg);
+    transform-origin: left top; /* Adjust the origin for better positioning */
+   position: absolute;
+   left: 0.1%;
+   top: 95%;
+  }
+
+  .nav_section{
+    display: flex;
+    gap: 0.6rem;
+    position: absolute;
+    right: 2%;
+    top: 2%;
+  }
+
+  .nav_section .language{
+    font-size: small;
+    width: 5vw;
+    height: 7vh;
+    background-color:  #494949;
+    border-radius: 0.5rem;
+    font-family: "Roboto Mono", monospace;
+  }
+  
+  .nav_section .signin{
+    font-size: small;
+    width: 8vw;
+    height: 7vh;
+    background-color:  #570987cb;
+    border-radius: 0.5rem;
+    color: rgb(171, 63, 201);
+    font-weight: 500;
+    font-family: "Roboto Mono", monospace;
+
+
+  }
+  
+
+  .reveal-letter {
+    opacity: 0;
+    display: inline-block;
+    transform: translateY(20px); /* Start each letter 20px below */
+    animation: reveal 0.5s forwards; /* Apply animation */
+    background: transparent; /* Ensures no background */
+  }
+  
+  /* Keyframes for the reveal animation */
+  @keyframes reveal {
+    to {
+      opacity: 1;
+      transform: translateY(0); /* Move back to original position */
+    }
+  }
+  
+  
+  .language, .signin {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+  
+
+
+  .sub_heading{
+    position: absolute;
+    top: 30%;
+    left: 14%;
+    width: 20vw;
+    text-align: right;
+    font-family: "Roboto Mono", monospace;
+    background: none;
+   
+  }
+
+
+  .reveal-sentence {
+    opacity: 0;
+    transform: translateY(100%);
+    animation: reveal 0.5s ease-in-out forwards;
+    color: rgb(178, 89, 203);
+    background: transparent;
+
+  }
+  
+  @keyframes reveal {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .sub_heading1{
+     position: absolute;
+     top: 22%;
+     right: 11%;
+     width: 16vw;
+     text-align: right;
+     font-family: "Roboto Mono", monospace;
+     background: none;
+    
+  }
+
+  .sub_heading_part{
+    color: rgb(178, 89, 203);
+  }
+
+  .sub_heading_part2{
+    background: transparent; /* Ensures no background */
+    position: absolute;
+    right: 0.001%;
+    width: 36vw;
+    font-size: 4rem;
+    top: 30%;
+    font-family: "Roboto Mono", monospace;
+  }
+
+  .sub_heading3{
+    position: absolute;
+   bottom: 4%;
+    right: 2%;
+    width: 42vw;
+    background: transparent;
+    font-family: "Roboto Mono", monospace;
+    color: gray;
+  }
+
+
+  .reveal-letter1 {
+    opacity: 0;
+    display: inline-block;
+    transform: translateY(20px); /* Start each letter 20px below */
+    animation: reveal 0.8s forwards; /* Apply animation */
+    background: transparent;
+    color: gray;
+  }
+  
+  @keyframes reveal {
+    to {
+      opacity: 1;
+      transform: translateY(0); /* Move back to original position */
+    }
+  }
+
+
+  .navbar{
+    width: 8vw;
+    height: 8vh;
+    position: absolute;
+    top: 10%;
+    left: -1%;
+    background-color: rgba(56, 53, 53, 0.849);
+    transform: rotate(-90deg);
+    border-radius: 0.5rem;
+  }

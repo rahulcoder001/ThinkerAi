@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* *{
+  background-color: black;
+  overflow: hidden;
+  color: white;
+} */
+
+.roboto_mono{
+   font-family: var(--roboto-mono);
+}
+
