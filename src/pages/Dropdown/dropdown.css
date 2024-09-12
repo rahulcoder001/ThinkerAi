@@ -1,0 +1,28 @@
+.card-initial {
+    transform: translateY(100vh); /* Start off-screen */
+    opacity: 0; /* Hidden */
+  }
+  
+  .card-animate {
+    animation: slideUpAndBack 3s ease-in-out forwards;
+  }
+  
+  @keyframes slideUpAndBack {
+    0% {
+      transform: translateY(100vh); /* Start from below the screen */
+      opacity: 0;
+    }
+    60% {
+      transform: translateY(-60px); /* Overshoot upwards */
+      opacity: 1;
+    }
+    80% {
+      transform: translateY(30px); /* Slight bounce back */
+    }
+    100% {
+      transform: translateY(0); /* Settle in the original position */
+    }
+  }
+
+  
+  
