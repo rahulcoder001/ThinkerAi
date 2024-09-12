@@ -2,13 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* *{
-  background-color: black;
-  overflow: hidden;
-  color: white;
-} */
-
-.roboto_mono{
-   font-family: var(--roboto-mono);
-}
-
+/* Remove this since we're now applying the className directly */
+/* // .roboto_mono {
+//    font-family: var(--roboto-mono);
+// } */

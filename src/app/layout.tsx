@@ -6,7 +6,6 @@ import "../app/globals.css";
 const robotoMono = RobotoMonoFont({
   subsets: ["latin"],
   weight: ["400", "700"],
-  variable: "--roboto-mono",
 });
 
 export const metadata: Metadata = {
@@ -21,7 +20,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${robotoMono.variable} antialiased`}>
+      {/* Apply the robotoMono.className here */}
+      <body className={`${robotoMono.className} antialiased`}>
         {children}
       </body>
     </html>
