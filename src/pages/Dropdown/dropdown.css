@@ -24,5 +24,109 @@
     }
   }
 
+  /* Keyframe animation for letter by letter reveal */
+@keyframes letter-reveal {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+  }
+  
+  /* Keyframe animation for word by word reveal */
+  @keyframes word-reveal {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Style for the bigger text animation (letter by letter) */
+  .text-reveal-letter {
+    opacity: 0;
+    display: inline-block;
+    transform: translateY(20px); /* Start each letter 20px below */
+    animation: reveal 0.3s forwards; /* Apply animation */
+    background: transparent; /* Ensures no background */
+    
+  }
+
+  @keyframes reveal {
+    to {
+      opacity: 1;
+      transform: translateY(0); /* Move back to original position */
+    }
+  }
+  
+  /* Style for the smaller text animation (word by word) */
+  .text-reveal-word {
+    display: inline-block;
+    opacity: 0;
+    animation: word-reveal 0.5s ease forwards;
+    animation-delay: var(--delay);
+  }
+  
+
+  @keyframes move {
+    0% {
+      transform: translate(0, 0);
+    }
+    50% {
+      transform: translate(7px, -7px); /* Move 10px right (X) and 10px up (Y) */
+    }
+    100% {
+      transform: translate(0, 0);
+    }
+  }
+  
+  .moving-arrow {
+    animation: move 1.5s ease-in-out infinite;
+  }
+
+  
+
+
+  .imgdiv{
+    cursor: pointer;
+    background: white;
+  }
+
+  .imgdiv:hover{
+      background: none;
+      transform: translate(-62px, -22px); /* Slight upward movement */
+      transition: all 1s ease;
+  }
+
+  .imginsidediv:hover div{
+    border: 4px white solid;
+    width: 5vw;
+    height: 5vw;
+  }
+
+.imginsidediv:hover img{
+    height: 40px;
+    width: 40px;
+    rotate: 45deg;
+}
+
+.imgdiv1{
+    cursor: pointer;
+    background: white;
+  }
+
+  .imgdiv1:hover{
+      background: none;
+      transform: translate(-62px, 10px); /* Slight upward movement */
+      transition: all 1s ease;
+  }
+  
+
   
   
