@@ -1,0 +1,156 @@
+@keyframes letterReveal {
+    0% {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes slideInFromLeft {
+    0% {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  
+  /* Apply letter reveal animation for text */
+  .letter {
+    display: inline-block;
+    opacity: 0;
+    animation: letterReveal 0.5s ease forwards;
+  }
+  
+  /* Adjust animation delays based on the number of characters */
+  .letter:nth-child(1) { animation-delay: 0s; }
+  .letter:nth-child(2) { animation-delay: 0.1s; }
+  .letter:nth-child(3) { animation-delay: 0.2s; }
+  .letter:nth-child(4) { animation-delay: 0.3s; }
+  .letter:nth-child(5) { animation-delay: 0.4s; }
+  .letter:nth-child(6) { animation-delay: 0.5s; }
+  .letter:nth-child(7) { animation-delay: 0.6s; }
+  .letter:nth-child(8) { animation-delay: 0.7s; }
+  .letter:nth-child(9) { animation-delay: 0.8s; }
+  .letter:nth-child(10) { animation-delay: 0.9s; }
+  .letter:nth-child(11) { animation-delay: 1s; }
+  .letter:nth-child(12) { animation-delay: 1.1s; }
+  .letter:nth-child(13) { animation-delay: 1.2s; }
+  .letter:nth-child(14) { animation-delay: 1.3s; }
+  .letter:nth-child(15) { animation-delay: 1.4s; }
+  .letter:nth-child(16) { animation-delay: 1.5s; }
+  .letter:nth-child(17) { animation-delay: 1.6s; }
+  .letter:nth-child(18) { animation-delay: 1.7s; }
+  .letter:nth-child(19) { animation-delay: 1.8s; }
+  .letter:nth-child(20) { animation-delay: 1.9s; }
+  .letter:nth-child(21) { animation-delay: 2s; }
+  .letter:nth-child(22) { animation-delay: 2.1s; }
+  .letter:nth-child(23) { animation-delay: 2.2s; }
+  .letter:nth-child(24) { animation-delay: 2.3s; }
+  .letter:nth-child(25) { animation-delay: 2.4s; }
+  .letter:nth-child(26) { animation-delay: 2.5s; }
+  .letter:nth-child(27) { animation-delay: 2.6s; }
+  .letter:nth-child(28) { animation-delay: 2.7s; }
+  .letter:nth-child(29) { animation-delay: 2.8s; }
+  .letter:nth-child(30) { animation-delay: 2.9s; }
+  
+  /* Slower horizontal reveal for input fields */
+  .inputReveal {
+    opacity: 0;
+    animation: slideInFromLeft 1s ease forwards; /* Increased duration */
+  }
+  
+  .inputReveal:nth-child(1) { animation-delay: 0.5s; }
+  .inputReveal:nth-child(2) { animation-delay: 0.7s; }
+  .inputReveal:nth-child(3) { animation-delay: 0.9s; }
+  
+  /* Button text reveal */
+  .buttonText {
+    display: inline-block;
+    opacity: 0;
+    animation: letterReveal 0.5s ease forwards;
+  }
+  
+  .buttonText:nth-child(1) { animation-delay: 0s; }
+  .buttonText:nth-child(2) { animation-delay: 0.1s; }
+  .buttonText:nth-child(3) { animation-delay: 0.2s; }
+  .buttonText:nth-child(4) { animation-delay: 0.3s; }
+  .buttonText:nth-child(5) { animation-delay: 0.4s; }
+  .buttonText:nth-child(6) { animation-delay: 0.5s; }
+  .buttonText:nth-child(7) { animation-delay: 0.6s; }
+  .buttonText:nth-child(8) { animation-delay: 0.7s; }
+  .buttonText:nth-child(9) { animation-delay: 0.8s; }
+  .buttonText:nth-child(10) { animation-delay: 0.9s; }
+  .buttonText:nth-child(11) { animation-delay: 1s; }
+  .buttonText:nth-child(12) { animation-delay: 1.1s; }
+  .buttonText:nth-child(13) { animation-delay: 1.2s; }
+  .buttonText:nth-child(14) { animation-delay: 1.3s; }
+  .buttonText:nth-child(15) { animation-delay: 1.4s; }
+  .buttonText:nth-child(16) { animation-delay: 1.5s; }
+  .buttonText:nth-child(17) { animation-delay: 1.6s; }
+  .buttonText:nth-child(18) { animation-delay: 1.7s; }
+  .buttonText:nth-child(19) { animation-delay: 1.8s; }
+  .buttonText:nth-child(20) { animation-delay: 1.9s; }
+  .buttonText:nth-child(21) { animation-delay: 2s; }
+  
+  /* Text with reveal animation */
+  .textReveal {
+    display: inline-block;
+    opacity: 0;
+    animation: letterReveal 0.5s ease forwards;
+  }
+  
+  .textReveal:nth-child(1) { animation-delay: 0s; }
+  .textReveal:nth-child(2) { animation-delay: 0.1s; }
+  .textReveal:nth-child(3) { animation-delay: 0.2s; }
+  .textReveal:nth-child(4) { animation-delay: 0.3s; }
+  .textReveal:nth-child(5) { animation-delay: 0.4s; }
+  .textReveal:nth-child(6) { animation-delay: 0.5s; }
+  .textReveal:nth-child(7) { animation-delay: 0.6s; }
+  .textReveal:nth-child(8) { animation-delay: 0.7s; }
+  .textReveal:nth-child(9) { animation-delay: 0.8s; }
+  .textReveal:nth-child(10) { animation-delay: 0.9s; }
+  .textReveal:nth-child(11) { animation-delay: 1s; }
+  .textReveal:nth-child(12) { animation-delay: 1.1s; }
+  .textReveal:nth-child(13) { animation-delay: 1.2s; }
+  .textReveal:nth-child(14) { animation-delay: 1.3s; }
+  .textReveal:nth-child(15) { animation-delay: 1.4s; }
+  .textReveal:nth-child(16) { animation-delay: 1.5s; }
+  .textReveal:nth-child(17) { animation-delay: 1.6s; }
+  .textReveal:nth-child(18) { animation-delay: 1.7s; }
+  .textReveal:nth-child(19) { animation-delay: 1.8s; }
+  .textReveal:nth-child(20) { animation-delay: 1.9s; }
+  .textReveal:nth-child(21) { animation-delay: 2s; }
+  .textReveal:nth-child(22) { animation-delay: 2.1s; }
+  .textReveal:nth-child(23) { animation-delay: 2.2s; }
+  .textReveal:nth-child(24) { animation-delay: 2.3s; }
+  .textReveal:nth-child(25) { animation-delay: 2.4s; }
+  .textReveal:nth-child(26) { animation-delay: 2.5s; }
+  .textReveal:nth-child(27) { animation-delay: 2.6s; }
+  .textReveal:nth-child(28) { animation-delay: 2.7s; }
+  .textReveal:nth-child(29) { animation-delay: 2.8s; }
+  .textReveal:nth-child(30) { animation-delay: 2.9s; }
+  
+  .background {
+    background-color: #160430; /* Your original background color */
+    min-height: 100vh;
+  }
+  .buttonReveal {
+    opacity: 0;
+    animation: slideInFromLeft 1s ease forwards;
+  }
+  
+  .buttonReveal:nth-child(1) { animation-delay: 0.7s; } /* Adjust delay as needed */
+  .buttonReveal:nth-child(2) { animation-delay: 0.9s; }
+  
+  /* Sign In button animation */
+  .signInButton {
+    opacity: 0;
+    animation: slideInFromLeft 1s ease forwards;
+    animation-delay: 0.5s; /* Adjust delay as per requirement */
+  }
