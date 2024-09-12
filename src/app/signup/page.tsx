@@ -23,12 +23,14 @@ const SignInPage = () => {
         {/* Right */}
         <div className="w-[45%] flex flex-col justify-center items-start min-h-screen">
 
-          <div className='font-extrabold text-5xl text-left text-white'>
-            SIGN IN
+          <div className='font-extrabold text-5xl text-left text-white font-mono'>
+            CREATE ACCOUNT
           </div>
-          <div className='mt-8 font-mono text-white'>
-            Sign in with email address
-          </div>
+          {/* <div className='mt-8 font-sans'>
+            Sign  with email address
+          </div> */}
+
+         
 
           {/* Email Input */}
           <div className="w-full max-w-md flex items-center p-4 mb-4 mt-2 bg-[#25184b] rounded-lg">
@@ -39,24 +41,30 @@ const SignInPage = () => {
             <input 
               type="email" 
               placeholder="Yourname@gmail.com" 
-              className="w-full bg-transparent font-mono  bg-[#25184b] rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              className="w-full bg-transparent  bg-[#25184b] rounded-xl outline-none focus:ring-2 focus:ring-indigo-500 "
             />
           </div>
+           {/* username */}
+           <input 
+            type="Username" 
+            placeholder="Username" 
+            className="w-full max-w-md p-4 mb-6 bg-[#25184b] rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          />
 
           {/* Password Input */}
           <input 
             type="password" 
             placeholder="Password" 
-            className="w-full max-w-md font-mono p-4 mb-6 bg-[#25184b] rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            className="w-full max-w-md p-4 mb-6 bg-[#25184b] rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500"
           />
 
           {/* Sign In Button */}
-          <button className="w-full max-w-md p-4 mb-2 font-mono text-white bg-gradient-to-r from-indigo-500 to-blue-500 font-semibold rounded-xl">
-            Sign In
+          <button className="w-full max-w-md p-4 mb-2 text-white bg-gradient-to-r font-mono from-indigo-500 to-blue-500 font-semibold rounded-xl">
+            Create Account
           </button>
           <hr className="w-full max-w-md border-t-2 border-gray-600 mt-4" />
-          <div className='font-mono text-white'>
-            Dont have a Account? <a href="/signup">Signup</a>
+          <div className='text-white font-mono'>
+            Already have a account? <a href="/signin">Signin</a>
           </div>
           <div className='mt-7 text-[#B6B6B6] text-sm font-sans'>
             Or continue with
