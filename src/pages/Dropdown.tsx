@@ -19,7 +19,7 @@ export function Dropdown() {
     return (
         <div className="overflow-hidden">
             {/* Main container */}
-            <div className="flex mt-[8vh] overflow-hidden">
+            <div className="flex mt-[4vh] ">
                 {/* Left section */}
                 <div className="w-[50vw] text-[3vw] font-bold p-[2vw]">
                     Advanced Leadership Strategies
@@ -32,9 +32,9 @@ export function Dropdown() {
             </div>
 
             {/* Cards section */}
-            <div className="flex m-[2.5vw] mt-[5vw] overflow-hidden">
+            <div className="flex m-[2.5vw] mt-[3vw]">
                 {/* Card 1 */}
-                <div className="relative h-[38vh] w-[22vw] rounded-[1.5vw] mr-[9vw] overflow-hidden"
+                <div className="relative h-[38vh] w-[22vw] rounded-[1.5vw] mr-[9vw]"
                     style={{ background: 'linear-gradient(to top, #0a4022, #000000)' }}>
                     <p className="text-[1.7vw] text-white p-[1vw]">Adaptive Leadership Framework</p>
                     <p className="text-[0.7vw] text-white opacity-40 px-[1vw]">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
@@ -47,7 +47,7 @@ export function Dropdown() {
                 </div>
 
                 {/* Card 2 */}
-                <div className="relative h-[38vh] w-[22vw] rounded-[1.5vw] mr-[9vw] overflow-hidden"
+                <div className="relative h-[38vh] w-[22vw] rounded-[1.5vw] mr-[9vw]"
                     style={{ background: 'linear-gradient(to bottom, #0a4022, #000000)' }}>
                     <Image alt="image" src={di2img} height={300} width={300} className="w-[8vw] h-[8vw] p-[1.5vw]" />
                     <p className="text-[1.7vw] text-white px-[1vw]">Adaptive Leadership Framework</p>
@@ -60,7 +60,7 @@ export function Dropdown() {
                 </div>
 
                 {/* Card 3 */}
-                <div className="relative h-[38vh] w-[22vw] rounded-[1.5vw] overflow-hidden"
+                <div className="relative h-[38vh] w-[22vw] rounded-[1.5vw]"
                     style={{ background: 'linear-gradient(to top, #4e4b25, #000000)' }}>
                     <p className="text-[1.7vw] text-white p-[1vw]">Adaptive Leadership Framework</p>
                     <p className="text-[0.7vw] text-white opacity-40 px-[1vw]">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
