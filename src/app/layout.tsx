@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Roboto_Mono as RobotoMonoFont } from "next/font/google";
 import "../app/globals.css";
-
+import Cursor from '../../Rootcomponent/Cursor/page'
 // Use the renamed constant
 const robotoMono = RobotoMonoFont({
   subsets: ["latin"],
@@ -22,6 +22,7 @@ export default function RootLayout({
     <html lang="en">
       {/* Apply the robotoMono.className here */}
       <body className={`${robotoMono.className} antialiased`}>
+        <Cursor/>
         {children}
       </body>
     </html>

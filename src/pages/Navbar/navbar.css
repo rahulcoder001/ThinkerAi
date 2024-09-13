@@ -1,0 +1,47 @@
+@keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .nav-logo {
+    animation: fadeIn 1s ease-in-out forwards;
+    animation-delay: 0s;
+  }
+  
+  .nav-items li {
+    opacity: 0;
+    animation: fadeIn 0.8s ease-in-out forwards;
+  }
+  
+  .nav-items li:nth-child(1) {
+    animation-delay: 1s;
+  }
+  
+  .nav-items li:nth-child(2) {
+    animation-delay: 1.2s;
+  }
+  
+  .nav-items li:nth-child(3) {
+    animation-delay: 1.4s;
+  }
+  
+  .nav-items li:nth-child(4) {
+    animation-delay: 1.6s;
+  }
+  
+  .nav-items li:nth-child(5) {
+    animation-delay: 1.8s;
+  }
+  
+  .nav-button {
+    opacity: 0;
+    animation: fadeIn 1s ease-in-out forwards;
+    animation-delay: 2.5s;
+  }
+  

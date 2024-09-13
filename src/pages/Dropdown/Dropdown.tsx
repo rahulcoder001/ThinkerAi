@@ -20,7 +20,7 @@ export function Dropdown() {
         setAnimateCard3(false);
 
         // Add a slight delay before starting the animations
-        const timer1 = setTimeout(() => setAnimateCard1(true), 0);
+        const timer1 = setTimeout(() => setAnimateCard1(true), 50);
         const timer2 = setTimeout(() => setAnimateCard2(true), 300);
         const timer3 = setTimeout(() => setAnimateCard3(true), 550);
 
@@ -36,20 +36,35 @@ export function Dropdown() {
         return null;
     }
 
+    // const biggerText = "Advanced Leadership Strategies".split("");
+    const smallerText = "Lorem ipsum dolor sit amet consectetur adipisicing elit.Lorem ipsum dolor sit amet consectetur adipisicing elit.Lorem ipsum dolor sit amet consectetur adipisicing elit.Lorem ipsum dolor sit amet consectetur adipisicing elit.".split(" ");
+
     return (
         <div className="overflow-hidden">
             {/* Main container */}
             <div className="flex mt-[4vh] ">
-                {/* Left section */}
-                <div className="w-[50vw] text-[3vw] font-bold p-[2vw]">
-                    Advanced Leadership Strategies
-                </div>
+        {/* Left section (bigger text) */}
+        <div className="w-[41vw] text-[3vw] font-bold  text-left  px-[2vw]">
+        {Array.from("Advanced Leadership Strategies").map((letter, index) => (
+    <span key={index} className="text-reveal-letter" style={{ animationDelay: `${index * 0.2}s` }}>
+      {letter === ' ' ? '\u00A0' : letter} {/* Handle spaces */}
+    </span>
+  ))}
+        </div>
 
-                {/* Right section */}
-                <div className="w-[50vw] text-[1vw] text-slate-400 font-semibold leading-relaxed p-[2vw] px-[4vw]">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus, dolorem inventore beatae debitis expedita, vero a reprehenderit pariatur ipsum odit voluptate temporibus alias eos odio.
-                </div>
-            </div>
+        {/* Right section (smaller text) */}
+        <div className="w-[50vw] text-[1vw] text-slate-400 font-semibold leading-relaxed p-[2vw] px-[4vw]">
+          {smallerText.map((word, index) => (
+            <span
+              key={index}
+              className="text-reveal-word"
+              style={{ "--delay": `${index * 0.1}s` }}
+            >
+              {word}&nbsp;
+            </span>
+          ))}
+        </div>
+      </div>
 
             {/* Cards section */}
             <div className="flex m-[2.5vw] mt-[3vw]">
@@ -61,9 +76,9 @@ export function Dropdown() {
                     <p className="text-[1.7vw] text-white p-[1vw]">Adaptive Leadership Framework</p>
                     <p className="text-[0.7vw] text-white opacity-40 px-[1vw]">Lorem ipsum dolor sit amet consectetur.</p>
                     <Image alt="image" src={di1img} height={200} width={200} className="w-[8vw] h-[8vw]" />
-                    <div className="absolute -bottom-[5vh] flex justify-center items-center bg-white rounded-full w-[10vw] h-[10vw] -right-[5vw]">
+                    <div className="absolute -bottom-[5vh] imgdiv imginsidediv flex justify-center items-center rounded-full w-[10vw] h-[10vw]  -right-[5vw]">
                         <div style={{ background: 'linear-gradient(to top, #0a4022, #000000)' }} className="flex justify-center items-center text-white w-[7vw] h-[7vw] rounded-full">
-                            <img width="64" height="64" src="https://img.icons8.com/hieroglyphs/64/up-right.png" alt="up-right" style={{ filter: 'invert(100%)' }} />
+                            <img width="64" height="64" src="https://img.icons8.com/hieroglyphs/64/up-right.png" alt="up-right" style={{ filter: 'invert(100%)' }} className="moving-arrow imgdimention" />
                         </div>
                     </div>
                 </div>
@@ -76,9 +91,9 @@ export function Dropdown() {
                     <Image alt="image" src={di2img} height={300} width={300} className="w-[8vw] h-[8vw] p-[1.5vw]" />
                     <p className="text-[1.7vw] text-white px-[1vw]">Adaptive Leadership Framework</p>
                     <p className="text-[0.7vw] text-white opacity-40 p-[1vw]">Lorem ipsum dolor sit amet consectetur.</p>
-                    <div className="absolute -top-[5vh] flex justify-center items-center bg-white rounded-full w-[10vw] h-[10vw] -right-[5vw]">
+                    <div className="absolute imgdiv1 imginsidediv -top-[5vh] flex justify-center items-center bg-white rounded-full w-[10vw] h-[10vw] -right-[5vw]">
                         <div style={{ background: 'linear-gradient(to bottom, #0a4022, #000000)' }} className="flex justify-center items-center w-[7vw] h-[7vw] rounded-full">
-                            <img width="64" height="64" src="https://img.icons8.com/hieroglyphs/64/up-right.png" alt="up-right" style={{ filter: 'invert(100%)' }} />
+                            <img width="64" height="64" src="https://img.icons8.com/hieroglyphs/64/up-right.png" alt="up-right" style={{ filter: 'invert(100%)' }}className="moving-arrow " />
                         </div>
                     </div>
                 </div>
@@ -91,9 +106,9 @@ export function Dropdown() {
                     <p className="text-[1.7vw] text-white p-[1vw]">Adaptive Leadership Framework</p>
                     <p className="text-[0.7vw] text-white opacity-40 px-[1vw]">Lorem ipsum dolor sit amet consectetur.</p>
                     <Image alt="image" src={di3img} height={200} width={200} className="w-[8vw] p-[1vw] h-[8vw]" style={{ filter: 'invert(100%)' }} />
-                    <div className="absolute -bottom-[5vh] flex justify-center items-center bg-white rounded-full w-[10vw] h-[10vw] -right-[5vw]">
+                    <div className="absolute imgdiv imginsidediv -bottom-[5vh] flex justify-center items-center bg-white rounded-full w-[10vw] h-[10vw] -right-[5vw]">
                         <div style={{ background: 'linear-gradient(to top, #4e4b25, #000000)' }} className="flex justify-center items-center text-white w-[7vw] h-[7vw] rounded-full">
-                            <img width="64" height="64" src="https://img.icons8.com/hieroglyphs/64/up-right.png" alt="up-right" style={{ filter: 'invert(100%)' }} />
+                            <img width="64" height="64" src="https://img.icons8.com/hieroglyphs/64/up-right.png" alt="up-right" style={{ filter: 'invert(100%)' }}className="moving-arrow " />
                         </div>
                     </div>
                 </div>
