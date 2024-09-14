@@ -4,23 +4,31 @@ import React, { useEffect, useState } from 'react';
 import styles from './main.module.css'; // Import styles as module
 import dots from "/public/images/dots.png";
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 
-const Page = () => {
+const Page = ({onArrowClick}) => {
   const [visible, setVisible] = useState(false);
   const [rotated, setRotated] = useState(false);
+  const [fadeOut, setFadeOut] = useState(false); // New state for fade-out effect
+  const router = useRouter();
 
-  // Single definition of handleClick
+ 
+  useEffect(() => {
+    setTimeout(() => {
+      setVisible(true);
+    }, 1000);
+  }, []);
+
   const handleClick = () => {
-    setRotated(!rotated); // Toggle rotation state on click
-    console.log("clicked");
+    setRotated(!rotated); // Toggle rotation
+    onArrowClick(); // Call the slide-up function passed from the parent (App.js)
   };
 
   useEffect(() => {
-    document.body.style.backgroundColor = 'black'; // Set background to black on load
+    document.body.style.backgroundColor = 'white'; // Set background to black on load
     document.body.style.overflow = 'hidden'; // Hide overflow
-    document.body.style.color='white'
+    document.body.style.color = 'white';
 
-    // Clean up by resetting the background and overflow when the component is unmounted
     return () => {
       document.body.style.backgroundColor = ''; // Reset to default or global background
       document.body.style.overflow = ''; // Reset overflow
@@ -29,14 +37,13 @@ const Page = () => {
   }, []);
 
   useEffect(() => {
-    // Set the navbar to visible after a short delay
     setTimeout(() => {
       setVisible(true);
     }, 1000); // Adjust delay as needed
   }, []);
 
   return (
-    <div className={styles.container}>
+    <div className={`${styles.container} ${fadeOut ? styles['fade-out'] : ''}`}> {/* Apply fade-out class */}
       <h1 className={styles.heading}>
         {Array.from("Thinker.AI").map((letter, index) => (
           <span key={index} className={styles['reveal-letter']} style={{ animationDelay: `${index * 0.1}s` }}>
@@ -99,7 +106,7 @@ const Page = () => {
           src="https://img.icons8.com/hieroglyphs/64/up-right.png"
           alt="up-right"
           className={`${styles['moving-arrow1']} ${rotated ? styles['rotate-opposite'] : ""}`} // Toggle class
-          onClick={handleClick} // Click handler for rotation
+          onClick={handleClick} // Click handler for rotation and navigation
         />
       </div>
     </div>

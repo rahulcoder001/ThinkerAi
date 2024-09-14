@@ -1,0 +1,17 @@
+/* app.module.css */
+.container {
+    position: fixed; /* Ensure it covers the entire viewport */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: black; /* Black background for the slide-up effect */
+    overflow: hidden; /* Hide overflow to avoid scrollbars */
+    transition: transform 0.6s ease-in-out; /* Smooth slide-up transition */
+  }
+  
+  /* Slide-up effect when triggered */
+  .slide-up {
+    transform: translateY(-100vh); /* Move the entire container up by the full viewport height */
+  }
+  

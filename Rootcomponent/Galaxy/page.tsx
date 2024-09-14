@@ -130,7 +130,9 @@ const Galaxy = () => {
 
 const GalaxyCanvas = () => {
   return (
-    <Canvas camera={{ position: [24, 0, 0], fov: 75 }} style={{position:'fixed'}}>
+    <Canvas camera={{ position: [24, 0, 0], fov: 75 }} style={{position:'fixed'}}
+    
+    >
       
       <Galaxy />
       
