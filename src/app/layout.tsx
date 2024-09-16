@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Roboto_Mono as RobotoMonoFont } from "next/font/google";
 import "../app/globals.css";
+import AuthProvider from "../../(component)/AuthProvider";
 
 // Use the renamed constant
 const robotoMono = RobotoMonoFont({
@@ -20,11 +21,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <AuthProvider>
       {/* Apply the robotoMono.className here */}
       <body className={`${robotoMono.className} antialiased`}>
        
-        {children}
+       {children}
+       
+       
       </body>
+      </AuthProvider>
     </html>
   );
 }
