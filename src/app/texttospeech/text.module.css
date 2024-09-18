@@ -1,0 +1,191 @@
+.container {
+    display: flex;
+    height: 100vh;
+    background-color: #1e1e1e;
+  }
+
+  @keyframes reveal {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Sidebar */
+  .sidebar {
+    margin-top: 1rem;
+    width: 250px;
+    background-color: #2a2a2a;
+    height: 93vh;
+    padding: 20px;
+    border-radius: 2rem;
+    margin-left: 1rem;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    animation: reveal 0.7s ease-out;
+  }
+  
+  .logo {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .navLinks a {
+    display: block;
+    color: white;
+    margin-bottom: 10px;
+    text-decoration: none;
+  }
+  
+  .navLinks a.active {
+    background-color: #3a3a3a;
+    padding: 10px;
+    border-radius: 10px;
+  }
+  
+  .settings a {
+    display: block;
+    color: white;
+    margin-bottom: 10px;
+    text-decoration: none;
+  }
+  
+  /* Main Content */
+  .mainContent {
+    flex: 1;
+    padding: 20px;
+    color: white;
+    animation: reveal 0.6s ease-out;
+  }
+  
+  .header {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .chatSection {
+    height: 76vh;
+    width: 40vw;
+    background-color: #2e2e2e;
+    border-radius: 10px;
+    padding: 20px;
+    align-content: center;
+  }
+  
+  .messageArea {
+    text-align: center;
+  }
+  
+  .featureGrid {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 2rem;
+
+  }
+  
+  .featureBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: #3a3a3a;
+    padding: 20px;
+    border-radius: 5px;
+    width: 30%;
+    height: 20vh;
+    text-align: left;
+  }
+  
+ 
+  
+ 
+  
+  .messageInput {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 6rem;
+
+  }
+  
+  .messageInput input {
+    width: 70%;
+    padding: 12px;
+    border-radius: 5rem;
+    border: none;
+    margin-right: 10px;
+    font-size: 1.2vw;
+    color: black;
+  }
+  
+  .messageInput button {
+    background-color: #4a4a4a;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+  }
+
+
+  .video_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 6rem;
+     width: 20vw;
+     height: 40vh;
+     background-color: #2a2a2a;
+     border-radius: 1rem;
+     color: white;
+     font-weight: bolder;
+  }
+  .video_container1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+     width: 20vw;
+     height: 40vh;
+     background-color: #2a2a2a;
+     border-radius: 1rem;
+     color: white;
+     font-weight: bolder;
+  }
+
+  .command {
+    border: 2px dotted #ffffff; /* White dotted border */
+    position: absolute;
+    bottom: 25%;
+    width: 12vw;
+    height: 5vh;
+    margin-left: 2rem;
+    border-radius: 10px; /* Optional: Rounded corners */
+    font-size: 0.8vw;
+    background-color: rgb(13, 210, 46);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bolder;
+}
+  .command1 {
+    border: 2px dotted #ffffff; /* White dotted border */
+    position: absolute;
+    bottom: 25%;
+    width: 12vw;
+    height: 5vh;
+    margin-left: 12rem;
+    border-radius: 10px; /* Optional: Rounded corners */
+    font-size: 0.8vw;
+    background-color: rgb(13, 210, 46);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bolder;
+}
+  
