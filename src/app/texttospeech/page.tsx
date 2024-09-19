@@ -5,10 +5,10 @@ import styles from './text.module.css';
 export default function Home() {
   const [prompt, setPrompt] = useState('');
   const [response, setResponse] = useState('');
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(false); 
   const [pdfurl, setPdfurl] = useState('');
+  const [lang, setLang] = useState('');
 
-  // Function to handle input and make API call
   const handleSendMessage = async () => {
     if (!prompt) return;
 
@@ -20,17 +20,17 @@ export default function Home() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ prompt }), // Send prompt to API
+        body: JSON.stringify({ prompt: prompt + ' in ' + lang }),
       });
 
-      const data = await res.json(); // Assuming the API returns a JSON response
-
-      setResponse(data.content); // Update response (message) in state
-      setPdfurl(data.pdfUrl); // Update PDF URL in state
+      const data = await res.json();
+     
+      setResponse(data.content);
+      setPdfurl(data.pdfUrl);
     } catch (error) {
       console.error('Error fetching translation:', error);
     } finally {
-      setLoading(false); // Set loading to false after API call is complete
+      setLoading(false);
     }
   };
 
@@ -56,33 +56,24 @@ export default function Home() {
       </nav>
 
       <main className={styles.mainContent}>
-        <header className={styles.header}>
-          <h2>Chat with Command R+</h2>
-          <h1 style={{ color: 'grey', fontSize: '0.7rem' }}>A conversational tool for web searches, citing sources.</h1>
-        </header>
-
-        <section className={styles.chatSection}>
+        <section className={styles.chatSection} style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
           <div className={styles.messageArea}>
             <h3 style={{ fontWeight: 'bolder' }}>Where knowledge begins</h3>
             <h1 style={{ color: 'grey', fontSize: '0.8rem' }}>Uses multiple sources and tools to answer questions with citations.</h1>
 
-            {/* Display loading spinner, response, or default feature boxes */}
-            <div className={styles.featureGrid}>
+            <div className={styles.featureGrid} style={{ marginTop: '2rem' }}>
               {loading ? (
                 <div className={styles.responseBox}>
                   <h1 style={{ color: 'grey', fontSize: '0.8vw' }}>Loading...</h1>
                 </div>
               ) : response ? (
                 <div className={styles.responseBox}>
-                  {/* Render beautified HTML content */}
-                  <div dangerouslySetInnerHTML={{ __html: response }} />
-                  {pdfurl && (
-                    <div style={{ marginTop: '1rem' }}>
-                      <a href={pdfurl} download className={styles.downloadButton}>
-                        Download PDF
-                      </a>
-                    </div>
-                  )}
+                  <h1 style={{ color: 'grey', fontSize: '1.2vw' }}>{response}</h1>
+                  <div style={{ marginTop: '1rem' }}>
+                    <a href={pdfurl} download className={styles.downloadButton}>
+                      Download PDF
+                    </a>
+                  </div>
                 </div>
               ) : (
                 <>
@@ -105,6 +96,14 @@ export default function Home() {
             <div className={styles.messageInput}>
               <input
                 type="text"
+                placeholder="Language"
+                className='input1'
+                value={lang}
+                onChange={(e) => setLang(e.target.value)}
+                             />
+              <input
+                type="text"
+                className='input2'
                 placeholder="Write a message here..."
                 value={prompt}
                 onChange={(e) => setPrompt(e.target.value)}
