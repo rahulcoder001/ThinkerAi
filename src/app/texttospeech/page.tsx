@@ -6,6 +6,7 @@ export default function Home() {
   const [prompt, setPrompt] = useState('');
   const [response, setResponse] = useState('');
   const [loading, setLoading] = useState(false); // Add loading state
+  const [pdfurl, setPdfurl] = useState('');
 
   // Function to handle input and make API call
   const handleSendMessage = async () => {
@@ -23,8 +24,10 @@ export default function Home() {
       });
 
       const data = await res.json(); // Assuming the API returns a JSON response
+     
       console.log(data.content);
       setResponse(data.content); // Update response (message) in state
+      setPdfurl(data.pdfUrl);
     } catch (error) {
       console.error('Error fetching translation:', error);
     } finally {
@@ -74,6 +77,15 @@ export default function Home() {
               ) : response ? (
                 <div className={styles.responseBox}>
                   <h1 style={{ color: 'grey', fontSize: '0.8vw' }}>{response}</h1>
+                  
+                  {/* Conditionally render download button if pdfurl is available */}
+                  
+                    <div style={{ marginTop: '1rem' }}>
+                      <a href={pdfurl} download className={styles.downloadButton}>
+                        Download PDF
+                      </a>
+                    </div>
+                  
                 </div>
               ) : (
                 <>
@@ -107,8 +119,6 @@ export default function Home() {
           </div>
         </section>
       </main>
-
-      
 
       <nav className={styles.sidebar} style={{ marginRight: '1rem' }}>
         <div>TOOLS</div>
