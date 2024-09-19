@@ -35,6 +35,7 @@
 /* Sidebar */
 .sidebar {
   margin-top: 1rem;
+  margin-left: 1rem;
   width: 250px;
   background-color: #2a2a2a;
   height: 93vh;
@@ -77,7 +78,9 @@
 /* Main Content */
 .mainContent {
   flex: 1;
+  
   padding: 20px;
+  
   color: white;
   animation: reveal 0.6s ease-out;
 }
@@ -88,16 +91,21 @@
 }
 
 .chatSection {
-  height: 76vh;
-  width: 55vw;
+  height: 93vh;
+  width: 62vw;
   background-color: #2e2e2e;
   border-radius: 10px;
   padding: 20px;
-  align-content: center;
+  padding-left: 40px; /* Add extra padding on the left to create empty space */
+  box-sizing: border-box; /* Ensure padding is included in the width and height */
+  position: relative;
 }
 
 .messageArea {
   text-align: center;
+  justify-content:center;
+  margin-left: auto; /* Ensure content aligns to the right if needed */
+  margin-right: auto; /* Center the content */
 }
 
 /* Feature Grid */
@@ -121,8 +129,8 @@
 
 /* Response Box */
 .responseBox {
-  width: 40vw;
-  height: 40vh;
+  width: 55vw;
+  height: 65vh;
   overflow-y: auto;
  
   border-radius: 8px;
@@ -138,6 +146,8 @@
   justify-content: center;
   align-items: center;
   margin-top: 2rem;
+  margin-left: auto; /* Align to the right side */
+  margin-right: auto; /* Center the input section */
 }
 
 .messageInput input {
