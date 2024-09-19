@@ -5,14 +5,14 @@ import styles from './text.module.css';
 export default function Home() {
   const [prompt, setPrompt] = useState('');
   const [response, setResponse] = useState('');
-  const [loading, setLoading] = useState(false); // Add loading state
+  const [loading, setLoading] = useState(false);
   const [pdfurl, setPdfurl] = useState('');
 
   // Function to handle input and make API call
   const handleSendMessage = async () => {
-    if (!prompt) return; // Avoid sending empty prompt
+    if (!prompt) return;
 
-    setLoading(true); // Set loading to true before making the API call
+    setLoading(true);
 
     try {
       const res = await fetch('/api/trans/translate', {
@@ -24,10 +24,9 @@ export default function Home() {
       });
 
       const data = await res.json(); // Assuming the API returns a JSON response
-     
-      console.log(data.content);
+
       setResponse(data.content); // Update response (message) in state
-      setPdfurl(data.pdfUrl);
+      setPdfurl(data.pdfUrl); // Update PDF URL in state
     } catch (error) {
       console.error('Error fetching translation:', error);
     } finally {
@@ -47,7 +46,6 @@ export default function Home() {
           <a href="#">Fine-tuning</a>
           <a href="#">PromptPro</a>
         </div>
-
         <h1 style={{ color: 'grey' }}>Settings</h1>
         <div className={styles.settings}>
           <a href="#">My Profile</a>
@@ -70,22 +68,21 @@ export default function Home() {
 
             {/* Display loading spinner, response, or default feature boxes */}
             <div className={styles.featureGrid}>
-              {loading ? ( // Show loading content when the API is in progress
+              {loading ? (
                 <div className={styles.responseBox}>
-                  <h1 style={{ color: 'grey', fontSize: '0.8vw' }}>Loading...</h1> {/* Replace this with a spinner if needed */}
+                  <h1 style={{ color: 'grey', fontSize: '0.8vw' }}>Loading...</h1>
                 </div>
               ) : response ? (
                 <div className={styles.responseBox}>
-                  <h1 style={{ color: 'grey', fontSize: '0.8vw' }}>{response}</h1>
-                  
-                  {/* Conditionally render download button if pdfurl is available */}
-                  
+                  {/* Render beautified HTML content */}
+                  <div dangerouslySetInnerHTML={{ __html: response }} />
+                  {pdfurl && (
                     <div style={{ marginTop: '1rem' }}>
                       <a href={pdfurl} download className={styles.downloadButton}>
                         Download PDF
                       </a>
                     </div>
-                  
+                  )}
                 </div>
               ) : (
                 <>
@@ -113,7 +110,7 @@ export default function Home() {
                 onChange={(e) => setPrompt(e.target.value)}
               />
               <button onClick={handleSendMessage} disabled={loading}>
-                {loading ? 'Sending...' : 'Send'} {/* Change button text when loading */}
+                {loading ? 'Sending...' : 'Send'}
               </button>
             </div>
           </div>
@@ -130,7 +127,6 @@ export default function Home() {
           <a href="#">Fine-tuning</a>
           <a href="#">PromptPro</a>
         </div>
-
         <h1 style={{ color: 'grey' }}>Settings</h1>
         <div className={styles.settings}>
           <a href="#">My Profile</a>
