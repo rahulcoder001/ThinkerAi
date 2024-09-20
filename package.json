@@ -17,6 +17,8 @@
     "bcrypt": "^5.1.1",
     "bcryptjs": "^2.4.3",
     "dotenv": "^16.4.5",
+    "elevenlabs": "^0.16.0",
+    "fs": "^0.0.1-security",
     "lil-gui": "^0.19.2",
     "mongodb": "^3.7.4",
     "mongoose": "^8.6.2",
