@@ -17,8 +17,8 @@ const uploadVideo = async (videoFilePath: string): Promise<string> => {
       {
         headers: {
           authorization: apiKey,
-          'Transfer-Encoding': 'chunked'
-        }
+          'Transfer-Encoding': 'chunked',
+        },
       }
     );
     
@@ -44,13 +44,13 @@ const transcribeVideo = async (videoFilePath: string) => {
         speaker_labels: true,
         language_code: 'en',
         punctuate: true,
-        format_text: true
+        format_text: true,
       },
       {
         headers: {
           authorization: apiKey,
-          'Content-Type': 'application/json'
-        }
+          'Content-Type': 'application/json',
+        },
       }
     );
 
@@ -62,7 +62,7 @@ const transcribeVideo = async (videoFilePath: string) => {
       const resultResponse = await axios.get(
         `https://api.assemblyai.com/v2/transcript/${transcriptId}`,
         {
-          headers: { authorization: apiKey }
+          headers: { authorization: apiKey },
         }
       );
       transcriptResult = resultResponse.data;
@@ -75,16 +75,21 @@ const transcribeVideo = async (videoFilePath: string) => {
       await new Promise((resolve) => setTimeout(resolve, 5000));
     }
 
-    // Step 4: Print the transcript
-    console.log('Transcript:', transcriptResult.text);
+    // Step 4: Build the final response with speaker diarization
+    const transcript = transcriptResult.text;
+    let speakerTranscript = transcript; // In case no speaker diarization is found
 
-    // Step 5: Print speaker diarization if enabled
     if (transcriptResult.utterances) {
-      transcriptResult.utterances.forEach((utterance: any) => {
-        console.log(`Speaker ${utterance.speaker}: ${utterance.text}`);
-      });
+      // Combine the utterances for a structured speaker-labeled transcript
+      speakerTranscript = transcriptResult.utterances
+        .map((utterance: any) => `Speaker ${utterance.speaker}: ${utterance.text}`)
+        .join('\n');
     }
 
+    return {
+      transcript, // The raw transcript without speaker labels
+      speakerTranscript, // The transcript with speaker labels
+    };
   } catch (error: any) {
     console.error('Error in transcription process:', error.message);
     throw error;
@@ -104,8 +109,8 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: 'Video file path is required' }, { status: 400 });
     }
 
-    await transcribeVideo(videoFilePath);
-    return NextResponse.json({ message: 'Transcription in process' });
+    const transcriptionResult = await transcribeVideo(videoFilePath);
+    return NextResponse.json(transcriptionResult); // Return the full transcription result
   } catch (error: any) {
     console.error('Error in transcription process:', error.message);
     return NextResponse.json({ error: 'Error in transcription process: ' + error.message }, { status: 500 });
