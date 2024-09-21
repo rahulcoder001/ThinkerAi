@@ -8,10 +8,13 @@ export default function Home() {
   const [loading, setLoading] = useState(false);
   const [pdfurl, setPdfurl] = useState('');
   const [audioUrl, setAudioUrl] = useState('');
+  const [text, setText] = useState('');
   const [lang, setLang] = useState('');
-  const [history, setHistory] = useState([]); // State to store message history
+  const [history, setHistory] = useState([]); // Message history
+  const [videoFile, setVideoFile] = useState<File | null>(null);  // State to handle video file
+  
   const audioUrl1 = '/output.mp3';
-
+  
   const handleSendMessage = async () => {
     if (!prompt) return;
 
@@ -27,6 +30,7 @@ export default function Home() {
         headers: {
           'Content-Type': 'application/json',
         },
+        // Correct string interpolation
         body: JSON.stringify({ prompt: `${prompt} in ${lang}` }),
       });
 
@@ -44,8 +48,41 @@ export default function Home() {
       });
 
       const audioData = await audioRes.json();
+      setAudioUrl(audioData.audioUrl); // Set the returned audio URL
     } catch (error) {
       console.error('Error fetching translation or audio:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleVideoUpload = async (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (!file) return;
+  
+    setLoading(true);
+    try {
+      setVideoFile(file);
+      setHistory((prevHistory) => [...prevHistory, `Uploaded video: ${file.name}`]);
+  
+      const formData = new FormData();
+      formData.append('video', file); // Append the video file to form data
+  
+      const res = await fetch('/api/trans/videoTranscription', {
+        method: 'POST',
+        body: formData,
+      });
+  
+      const data = await res.json();
+      if (res.ok) {
+        setText(data.transcript);
+        setResponse(data.transcript);  // Display the transcription in the response box
+        setHistory((prevHistory) => [...prevHistory, `Video Transcription: ${data.transcript}`]);
+      } else {
+        console.error('Error:', data.error);
+      }
+    } catch (error) {
+      console.error('Error uploading or transcribing video:', error);
     } finally {
       setLoading(false);
     }
@@ -88,7 +125,7 @@ export default function Home() {
                 <div className={styles.responseBox}>
                   <h1 style={{ color: 'grey', fontSize: '0.8vw' }}>Loading...</h1>
                 </div>
-              ) : response ? (
+              ) : (response) ? (
                 <div className={styles.responseBox}>
                   <h1 style={{ color: 'grey', fontSize: '1.2vw' }}>{response}</h1>
                   <div style={{ marginTop: '1rem' }}>
@@ -136,6 +173,17 @@ export default function Home() {
               <button onClick={handleSendMessage} disabled={loading}>
                 {loading ? 'Sending...' : 'Send'}
               </button>
+
+              {/* Video upload section */}
+              <div className="flex items-center justify-center w-full">
+                <label className="flex flex-col items-center px-4 py-6 bg-white rounded-lg shadow-lg tracking-wide uppercase border border-blue-500 cursor-pointer hover:bg-blue-500 hover:text-white text-blue-500 transition-all duration-200 ease-in-out">
+                  <svg className="w-8 h-8" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                    <path d="M16.88 5.22A3 3 0 0 0 14.5 4h-9a3 3 0 0 0-2.38 1.22L1 8.5V17a3 3 0 0 0 3 3h12a3 3 0 0 0 3-3V8.5l-2.12-3.28zM10 15l-3.5-3.5L8 10l2 2 4-4 1.5 1.5L10 15z" />
+                  </svg>
+                  <span className="mt-2 text-base leading-normal">Select a video file</span>
+                  <input type="file" className="hidden" accept=".mp4" onChange={handleVideoUpload} />
+                </label>
+              </div>
             </div>
           </div>
         </section>
@@ -143,7 +191,6 @@ export default function Home() {
 
       <nav className={styles.sidebar} style={{ marginRight: '1rem' }}>
         <div>TOOLS</div>
-        {/* Message history displayed here */}
         <div style={{ marginTop: '1rem', padding: '1rem', color: 'grey', overflowY: 'auto' }}>
           <h2 style={{ fontSize: '1rem', fontWeight: 'bold' }}>Recent Messages</h2>
           {history.length === 0 ? (
