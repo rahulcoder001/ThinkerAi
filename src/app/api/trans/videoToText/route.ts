@@ -1,16 +1,23 @@
-// src/app/api/trans/videoTranscription/route.ts
 import axios from 'axios';
 import fs from 'fs';
-import { NextResponse } from 'next/server';
+import { NextApiRequest, NextApiResponse } from 'next';
+import { IncomingForm } from 'formidable'; // Use formidable to handle file uploads
+
+// Disable body parsing to handle file uploads
+export const config = {
+  api: {
+    bodyParser: false,
+  },
+};
 
 // Replace with your AssemblyAI API key
 const apiKey: string = 'd88cea49224e4de99376e8b429f0860d';
 
-// Function to upload the video file
+// Function to upload the video file to AssemblyAI
 const uploadVideo = async (videoFilePath: string): Promise<string> => {
   try {
     const file = fs.createReadStream(videoFilePath);
-    
+
     const response = await axios.post(
       'https://api.assemblyai.com/v2/upload',
       file,
@@ -21,7 +28,7 @@ const uploadVideo = async (videoFilePath: string): Promise<string> => {
         },
       }
     );
-    
+
     return response.data.upload_url; // Return the uploaded file URL
   } catch (error: any) {
     console.error('Error uploading the video:', error.message);
@@ -75,6 +82,7 @@ const transcribeVideo = async (videoFilePath: string) => {
       await new Promise((resolve) => setTimeout(resolve, 5000));
     }
 
+<<<<<<< HEAD
     // Step 4: Build the final response with speaker diarization
     const transcript = transcriptResult.text;
     let speakerTranscript = transcript; // In case no speaker diarization is found
@@ -90,6 +98,10 @@ const transcribeVideo = async (videoFilePath: string) => {
       transcript, // The raw transcript without speaker labels
       speakerTranscript, // The transcript with speaker labels
     };
+=======
+    // Step 4: Return the transcript
+    return transcriptResult.text;
+>>>>>>> 173845b35ca929e671026873dedfa8b0569d7c6a
   } catch (error: any) {
     console.error('Error in transcription process:', error.message);
     throw error;
@@ -97,22 +109,41 @@ const transcribeVideo = async (videoFilePath: string) => {
 };
 
 // API Route handler for Next.js
-export async function POST(req: Request) {
-  try {
-    // Log the request body for debugging
-    const body = await req.json();
-    console.log('Request body:', body);
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+  if (req.method !== 'POST') {
+    return res.status(405).json({ message: 'Method not allowed' });
+  }
 
-    const { videoFilePath } = body; // Get video file path from request body
+  const form = new IncomingForm();
 
-    if (!videoFilePath) {
-      return NextResponse.json({ error: 'Video file path is required' }, { status: 400 });
+  // Parse the form data (to handle the file)
+  form.parse(req, async (err, fields, files) => {
+    if (err) {
+      console.error('Error parsing form data:', err);
+      return res.status(500).json({ error: 'Failed to parse form data' });
     }
 
+<<<<<<< HEAD
     const transcriptionResult = await transcribeVideo(videoFilePath);
     return NextResponse.json(transcriptionResult); // Return the full transcription result
   } catch (error: any) {
     console.error('Error in transcription process:', error.message);
     return NextResponse.json({ error: 'Error in transcription process: ' + error.message }, { status: 500 });
   }
+=======
+    try {
+      const videoFilePath = (files.video as any).filepath; // Extract file path from uploaded video
+
+      if (!videoFilePath) {
+        return res.status(400).json({ error: 'Video file path is required' });
+      }
+
+      const transcript = await transcribeVideo(videoFilePath);
+      return res.status(200).json({ transcript });
+    } catch (error: any) {
+      console.error('Error in transcription process:', error.message);
+      return res.status(500).json({ error: 'Error in transcription process: ' + error.message });
+    }
+  });
+>>>>>>> 173845b35ca929e671026873dedfa8b0569d7c6a
 }
