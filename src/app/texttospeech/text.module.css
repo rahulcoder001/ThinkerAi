@@ -130,7 +130,7 @@
 /* Response Box */
 .responseBox {
   width: 55vw;
-  height: 65vh;
+  height: 55vh;
   overflow-y: auto;
  
   border-radius: 8px;

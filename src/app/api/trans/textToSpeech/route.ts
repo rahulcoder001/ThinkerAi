@@ -4,7 +4,7 @@ import { ElevenLabsClient, ElevenLabs } from 'elevenlabs';
 import fs from 'fs';
 import path from 'path';
 
-const client = new ElevenLabsClient({ apiKey: 'sk_6ffdd34a6705576bb5b90f6838742c510ce387f08364c49a' });
+const client = new ElevenLabsClient({ apiKey: 'sk_f04759394997f6038604c1fd5bf9412abc82615f68376623' });
 
 export async function POST(req: Request) {
     const { text } = await req.json();
