@@ -2,7 +2,7 @@
 import Image from "next/image";
 import './style.css'
 import starimg from "../../../public/images/staricon.svg"
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function TextIcon(){
   return <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30" height="30" viewBox="0 0 100 100">
@@ -30,96 +30,124 @@ function PptIcon(){
   return <img width="20" height="20" src="https://img.icons8.com/external-bearicons-outline-color-bearicons/20/external-PPT-file-extension-bearicons-outline-color-bearicons.png" alt="external-PPT-file-extension-bearicons-outline-color-bearicons"/>
 }
 
-export default function(){
-    const [yes , setYes] = useState(true);
 
 
+export default function AnimatedSection() {
+  const [yes, setYes] = useState(true);
 
-return (
-  <section className="mt-32 flex flex-col justify-between items-center">
-  <div className="flex bg-white justify-center font-bold px-1 text-sm rounded-full items-center shadow-lg">
-    <button
-      onClick={() => { setYes(!yes); }}
-      className={`flex items-center bg-white rounded-full p-1 ${yes ? "invert-white" : ""}`}
-    >
-      <Image src={starimg} alt="starimg" className="w-6 h-6" />
-      What is?
-    </button>
-    <button
-      onClick={() => { setYes(!yes); }}
-      className={`ml-3 justify-center p-2 bg-white rounded-full items-center ${!yes ? "invert-white" : ""}`}
-    >
-      How it works
-    </button>
-  </div>
+  useEffect(() => {
+    // Apply the animation to each child
+    const sectionChildren = document.querySelectorAll('.animate-child');
+    sectionChildren.forEach((child, index) => {
+      setTimeout(() => {
+        child.classList.add('animated');
+      }, index * 200); // Staggering the animation by 200ms for each child
+    });
+  }, []);
 
-  <p className="mt-3 flex flex-col items-center font-bold text-2xl">
-    <span>Use AI faster and more</span>
-    <span>efficiently right on your device!</span>
-  </p>
-
-  <div className="m-5 wid flex mt-20">
-    <div className="relativediv w-1/5 rounded-2xl mr-3 relative">
-      <div className="grid relative">
-        {/* Static Grid Lines */}
-        {Array.from({ length: 7 }).map((_, rowIndex) => (
-          <div
-            key={`h-static-${rowIndex}`}
-            className="static-line-horizontal"
-            style={{ top: `${rowIndex * 20}%` }}
-          />
-        ))}
-        {Array.from({ length: 6 }).map((_, colIndex) => (
-          <div
-            key={`v-static-${colIndex}`}
-            className="static-line-vertical"
-            style={{ left: `${colIndex * 25}%` }}
-          />
-        ))}
-
-        {/* Vertical Sparks */}
-        {Array.from({ length: 4 }).map((_, colIndex) => (
-          <div
-            key={`v-spark-${colIndex}`}
-            className="spark-vertical"
-            style={{ left: `${colIndex * 25}%`, animationDelay: `${colIndex * 1}s` }}
-          />
-        ))}
-
-        {/* Horizontal Sparks */}
-        {Array.from({ length: 5 }).map((_, rowIndex) => (
-          <div
-            key={`h-spark-${rowIndex}`}
-            className="spark-horizontal"
-            style={{ top: `${rowIndex * 20}%`, animationDelay: `${(4 + rowIndex) * 1}s` }}
-          />
-        ))}
+  return (
+    <section className="mt-32 flex flex-col justify-between items-center section-with-animation">
+      <div className="flex bg-white justify-center font-bold px-1 text-sm rounded-full items-center shadow-lg animate-child">
+        <button
+          onClick={() => setYes(!yes)}
+          className={`flex items-center bg-white rounded-full p-1 ${yes ? 'invert-white' : ''}`}
+        >
+          <Image src={starimg} alt="starimg" className="w-6 h-6" />
+          What is?
+        </button>
+        <button
+          onClick={() => setYes(!yes)}
+          className={`ml-3 justify-center p-2 bg-white rounded-full items-center ${!yes ? 'invert-white' : ''}`}
+        >
+          How it works
+        </button>
       </div>
-      <p className="absolute bottom-0 p-3 text-white text-xs font-semibold">
-        Try Gcore Inference At The Edge: Speed Up Ai, Reduce Latency
+
+      <p className="mt-3 flex flex-col items-center font-bold text-2xl animate-child">
+        <span>Use AI faster and more</span>
+        <span>efficiently right on your device!</span>
       </p>
-    </div>
 
-    <div className="w-4/5 rounded-2xl bg-white">
-      <p className="px-10 p-5 font-bold">Gcore Inference at the Edge reduces the latency of your ML model output and improves the performance of Al-enabled applications.</p>
-      <p className="px-10 text-sm text-gray-500 font-semibold">Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
+      <div className="m-5 wid flex mt-20 animate-child">
+        <div className="relativediv w-1/5 rounded-2xl mr-3 relative h-96">
+          <div className="grid relative">
+            {/* Static Grid Lines */}
+            {Array.from({ length: 7 }).map((_, rowIndex) => (
+              <div
+                key={`h-static-${rowIndex}`}
+                className="static-line-horizontal"
+                style={{ top: `${rowIndex * 20}%` }}
+              />
+            ))}
+            {Array.from({ length: 6 }).map((_, colIndex) => (
+              <div
+                key={`v-static-${colIndex}`}
+                className="static-line-vertical"
+                style={{ left: `${colIndex * 25}%` }}
+              />
+            ))}
 
-      <div className="flex flex-col justify-center items-center m-10 p-5 bg-slate-100 rounded-xl">
-        <div className="flex text-xs">
-          <p className="flex items-center shadow-lg cursor-pointer px-2 p-1 rounded-full bg-white gap-2"> <TextIcon /> Content Generation</p>
-          <p className="flex items-center shadow-lg cursor-pointer px-2 p-1 rounded-full bg-white ml-16 gap-2"> <AudioIcon /> Audio Generation</p>
-          <p className="flex items-center shadow-lg cursor-pointer px-2 p-1 rounded-full bg-white ml-16 gap-2"> <VideoIcon /> Video Generation</p>
+            {/* Vertical Sparks */}
+            {Array.from({ length: 4 }).map((_, colIndex) => (
+              <div
+                key={`v-spark-${colIndex}`}
+                className="spark-vertical"
+                style={{ left: `${colIndex * 25}%`, animationDelay: `${colIndex * 1}s` }}
+              />
+            ))}
+
+            {/* Horizontal Sparks */}
+            {Array.from({ length: 5 }).map((_, rowIndex) => (
+              <div
+                key={`h-spark-${rowIndex}`}
+                className="spark-horizontal"
+                style={{ top: `${rowIndex * 20}%`, animationDelay: `${(4 + rowIndex) * 1}s` }}
+              />
+            ))}
+          </div>
+          <p className="absolute bottom-0 p-3 text-white text-xs font-semibold">
+            Try Gcore Inference At The Edge: Speed Up Ai, Reduce Latency
+          </p>
         </div>
-        <div className="flex text-xs mt-3">
-          <p className="flex items-center shadow-lg cursor-pointer px-2 p-2 rounded-full bg-white gap-2"> <ImageIcon /> Image Generation</p>
-          <p className="flex items-center shadow-lg cursor-pointer px-2 p-2 rounded-full bg-white ml-16 gap-2"><GifIcon /> GIF Generation</p>
-          <p className="flex items-center shadow-lg cursor-pointer px-2 p-2 rounded-full bg-white ml-16 gap-2"> <PptIcon /> PPT Generation</p>
+
+        <div className="w-4/5 rounded-2xl bg-white relative h-96">
+          <p className="px-10 p-5 font-bold">
+            Gcore Inference at the Edge reduces the latency of your ML model output and improves the
+            performance of AI-enabled applications.
+          </p>
+          <p className="px-10 text-sm text-gray-500 font-semibold">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit...
+          </p>
+          <div className="absolute flex flex-col bottom-0 right-0 bg-slate-100 rounded-tl-3xl p-3">
+            <div className="flex text-xs mb-16 right-0 relative">
+              <p className="flex absolute right-0 items-center shadow-lg cursor-pointer px-2 p-1 rounded-full bg-white gap-2">
+                <TextIcon /> Content Generation
+              </p>
+            </div>
+            <div className="flex text-xs mb-15 relative">
+              <div className="absolute right-0 flex">
+                <p className="flex items-center shadow-lg cursor-pointer px-2 p-2 rounded-full bg-white gap-2">
+                  <AudioIcon /> Audio Generation
+                </p>
+                <p className="flex items-center shadow-lg cursor-pointer px-2 p-2 rounded-full bg-white ml-10 gap-2">
+                  <VideoIcon /> Video Generation
+                </p>
+              </div>
+            </div>
+            <div className="flex text-xs mt-16">
+              <p className="flex items-center shadow-lg cursor-pointer px-2 p-2 rounded-full bg-white gap-2">
+                <ImageIcon /> Image Generation
+              </p>
+              <p className="flex items-center shadow-lg cursor-pointer px-2 p-2 rounded-full bg-white ml-10 gap-2">
+                <GifIcon /> GIF Generation
+              </p>
+              <p className="flex items-center shadow-lg cursor-pointer px-2 p-2 rounded-full bg-white ml-10 gap-2">
+                <PptIcon /> PPT Generation
+              </p>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
-
-
+    </section>
   );
 }
