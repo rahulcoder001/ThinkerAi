@@ -2,17 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Remove this since we're now applying the className directly */
-/* // .roboto_mono {
-//    font-family: var(--roboto-mono);
-// } */
+
 .poppins {
     font-family: "Poppins", sans-serif;
-   
     font-style: normal;
-  }
-  
-
-
-
-
+}
