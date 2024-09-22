@@ -5,6 +5,7 @@ import Main from '../../Rootcomponent/Main/page';
 import { useRouter } from 'next/navigation'; // Import useRouter for navigation
 import styles from './app.module.css'; // Import the new CSS for slide-up
 import Cursor from '../../Rootcomponent/Cursor/page'
+import  Navbar  from '@/pages/Navbar/Navbar';
 
 const App = () => {
   const [slideUp, setSlideUp] = useState(false); // State to trigger the slide-up animation
@@ -30,6 +31,7 @@ const App = () => {
 
   return (
     <div className={`${styles.container} ${slideUp ? styles['slide-up'] : ''}`}>
+      <Navbar/>
       <Cursor/>
       <GalaxyCanvas />
       <Main onArrowClick={handleSlideUp} /> {/* Pass the function as a prop */}
