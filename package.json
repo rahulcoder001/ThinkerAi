@@ -10,8 +10,10 @@
   },
   "dependencies": {
     "@google/generative-ai": "^0.19.0",
+    "@heroicons/react": "^2.1.5",
     "@react-three/drei": "^9.112.0",
     "@react-three/fiber": "^8.17.7",
+    "@splinetool/react-spline": "^4.0.0",
     "@types/next-auth": "^3.13.0",
     "axios": "^1.7.7",
     "bcrypt": "^5.1.1",

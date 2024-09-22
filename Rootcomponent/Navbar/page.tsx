@@ -42,8 +42,20 @@ const Navbar = () => {
   border: '1px solid rgba(255, 255, 255, 0.3)', // Light border to enhance the glass effect
   boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)', // Subtle shadow for depth
   color: 'white', // Text color for contrast
-}}></button>
-         <button style={{height:'6vh',width:'7vw',backgroundColor:'white',borderRadius:'2rem'}}></button>
+  fontSize:'0.6rem',
+  fontWeight:'bolder'
+}}>Contact Us</button>
+        <button style={{
+  height: '6vh',
+  width: '7vw',
+  background: 'radial-gradient(circle at top right, rgba(255, 165, 0, 0.5), transparent 100%)',
+  borderRadius: '2rem',
+  border: 'none', // Optional: Remove border if not needed
+  boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)', // Optional: Add some shadow for depth
+  backdropFilter: 'blur(5px)', // Optional: For glass-like effect if desired
+   fontSize:'0.6rem',
+  fontWeight:'bolder'
+}}>Sign Up</button>
       </div>
     </nav>
   );

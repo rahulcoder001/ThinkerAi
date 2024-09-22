@@ -24,10 +24,7 @@ export default function RootLayout({
       <AuthProvider>
       {/* Apply the robotoMono.className here */}
       <body className={`${robotoMono.className} antialiased`}>
-       
        {children}
-       
-       
       </body>
       </AuthProvider>
     </html>

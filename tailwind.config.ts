@@ -8,6 +8,15 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      keyframes: {
+        glow: {
+          '0%, 100%': { opacity: '5', filter: 'brightness(1)' },
+          '50%': { opacity: '2.5', filter: 'brightness(2)' },
+        },
+      },
+      animation: {
+        glow: 'glow 1.5s infinite', // 1.5 seconds duration, infinite loop
+      },
       fontFamily: {
         sans: ['Poppins', 'sans-serif'],
         poppins: ['Poppins', 'sans-serif'],

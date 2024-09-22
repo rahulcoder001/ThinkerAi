@@ -34,6 +34,10 @@ const Main = () => {
         }}
       >
         <Navbar />
+
+        <div style={{width:'10vw',height:'5vh',backgroundColor:'white',borderRadius:'1rem',textAlign:'center'}}>
+          Beta release
+        </div>
       </div>
     </div>
   );
