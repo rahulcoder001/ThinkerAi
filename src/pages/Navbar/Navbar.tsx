@@ -1,21 +1,45 @@
-import './navbar.css';
+import Image from 'next/image';
+import React from 'react';
+import logo from "../../../public/images/nav.jpg";
 
-export function Navbar() {
+const Navbar = () => {
   return (
-    <nav className=" text-black ">
-      <div className=" bg-slate-100 p-2 flex justify-between  px-8">
-        <p className="font-extrabold text-xl nav-logo">THINKER.AI</p>
-        
-        <ul className="flex nav-items">
-          <li className="px-4 font-semibold">Home</li>
-          <li className="px-4 font-semibold">About</li>
-          <li className="px-4 font-semibold">Teachers</li>
-          <li className="px-4 font-semibold">Courses</li>
-          <li className="px-4 font-semibold">Career</li>
-        </ul>
-        
-        <button className="p-2 text-sm rounded-2xl font-bold bg-gray-600 bg-opacity-10 nav-button">Join Now</button>
-      </div>
+    <nav className="fixed top-0 left-1/4 right-1/4 text-white bg-[#18181b] shadow-lg rounded-xl py-1 px-4 mt-4 max-w-4xl mx-auto">
+      <ul className="flex justify-between items-center">
+        <li>
+          <Image 
+            src={logo} 
+            alt="logo"
+            width={40} 
+            height={40} 
+            className="rounded-full bg-transparent" 
+          />
+        </li>
+        <li>
+          <a href="#" className=" font-poppins text-white hover:text-orange-500">
+            Features
+          </a>
+        </li>
+        <li>
+          <a href="#" className="font-poppins text-white hover:text-orange-500">
+            Resources
+          </a>
+        </li>
+        <li>
+          <a href="#" className="font-poppins text-white hover:text-orange-500">
+            WhyEduBotix
+          </a>
+        </li>
+        <li>
+          <div className=" font-poppins flex items-center bg-white text-black rounded-xl px-4 py-1">
+            <a href="/signup" className="text-black hover:text-orange-500">
+              Signup For Free
+            </a>
+          </div>
+        </li>
+      </ul>
     </nav>
   );
-}
+};
+
+export default Navbar;

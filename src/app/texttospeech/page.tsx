@@ -56,37 +56,23 @@ export default function Home() {
     }
   };
 
-  const handleVideoUpload = async (event: React.ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files?.[0];
+  const  handleVideoUpload=async()=>{
+    const file = videoFile;
     if (!file) return;
-  
     setLoading(true);
-    try {
-      setVideoFile(file);
-      setHistory((prevHistory) => [...prevHistory, `Uploaded video: ${file.name}`]);
-  
-      const formData = new FormData();
-      formData.append('video', file); // Append the video file to form data
-  
-      const res = await fetch('/api/trans/videoTranscription', {
-        method: 'POST',
-        body: formData,
-      });
-  
-      const data = await res.json();
-      if (res.ok) {
-        setText(data.transcript);
-        setResponse(data.transcript);  // Display the transcription in the response box
-        setHistory((prevHistory) => [...prevHistory, `Video Transcription: ${data.transcript}`]);
-      } else {
-        console.error('Error:', data.error);
-      }
-    } catch (error) {
-      console.error('Error uploading or transcribing video:', error);
-    } finally {
+    try{
+     const res=await fetch('/api/trans/videoToText',{
+      
+     })
+    }catch(err){
+      console.error(err);
+    }
+    finally{
       setLoading(false);
     }
-  };
+  }
+
+  
 
   return (
     <div className={styles.container}>

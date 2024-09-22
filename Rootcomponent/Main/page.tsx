@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Loading from '../Loading/page';
+import Navbar from '../Navbar/page';
 
 const Main = () => {
   const [loadingComplete, setLoadingComplete] = useState(false);
@@ -32,8 +33,7 @@ const Main = () => {
           transition: 'transform 1s ease-in-out, opacity 0.5s ease-in-out',
         }}
       >
-        <h1>Welcome to EDUBOTIX!</h1>
-        <p>This is the main content of your application.</p>
+        <Navbar />
       </div>
     </div>
   );
@@ -41,14 +41,14 @@ const Main = () => {
 
 const styles = {
   container: {
-    position: 'relative', // Position relative to its children
+    position: 'relative',
     width: '100%',
-    height: '100vh', // Full viewport height
-    overflow: 'hidden', // Hide overflow to prevent scrolling
-    backgroundColor: 'black', // Background color
+    height: '100vh',
+    overflow: 'hidden',
+    backgroundColor: 'black',
   },
   loadingContainer: {
-    position: 'absolute', // Absolute positioning within the container
+    position: 'absolute',
     top: 0,
     left: 0,
     width: '100%',
@@ -56,22 +56,24 @@ const styles = {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'black', // Keep it the same as the main background to blend seamlessly
+    backgroundColor: 'black',
   },
   mainContent: {
-    position: 'absolute', // Absolute positioning for animation
-    bottom: 0,
+    position: 'absolute',
+    top: 0,
     left: 0,
     width: '100%',
-    height: '100vh', // Full height to cover the container
+    height: '100vh',
     display: 'flex',
-    flexDirection: 'column', // Align items vertically
-    justifyContent: 'center', // Center content vertically
-    alignItems: 'center', // Center content horizontally
-    backgroundColor: 'white', // Background color for the main content
-    color: '#333', // Text color
-    transform: 'translateY(100%)', // Start position below the screen
-    opacity: 0, // Initially hidden
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    background: `
+      radial-gradient(circle at top right, rgba(255, 165, 0, 0.5), transparent 30%),
+      linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px) 0 0 / 100px 100%,
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px) 0 0 / 100% 100px
+    `,
+    backgroundSize: 'cover',
   },
 };
 

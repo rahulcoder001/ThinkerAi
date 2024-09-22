@@ -24,8 +24,8 @@ const uploadVideo = async (videoFilePath: string): Promise<string> => {
       {
         headers: {
           authorization: apiKey,
-          'Transfer-Encoding': 'chunked'
-        }
+          'Transfer-Encoding': 'chunked',
+        },
       }
     );
 
@@ -51,13 +51,13 @@ const transcribeVideo = async (videoFilePath: string) => {
         speaker_labels: true,
         language_code: 'en',
         punctuate: true,
-        format_text: true
+        format_text: true,
       },
       {
         headers: {
           authorization: apiKey,
-          'Content-Type': 'application/json'
-        }
+          'Content-Type': 'application/json',
+        },
       }
     );
 
@@ -69,7 +69,7 @@ const transcribeVideo = async (videoFilePath: string) => {
       const resultResponse = await axios.get(
         `https://api.assemblyai.com/v2/transcript/${transcriptId}`,
         {
-          headers: { authorization: apiKey }
+          headers: { authorization: apiKey },
         }
       );
       transcriptResult = resultResponse.data;
@@ -82,8 +82,26 @@ const transcribeVideo = async (videoFilePath: string) => {
       await new Promise((resolve) => setTimeout(resolve, 5000));
     }
 
+<<<<<<< HEAD
+    // Step 4: Build the final response with speaker diarization
+    const transcript = transcriptResult.text;
+    let speakerTranscript = transcript; // In case no speaker diarization is found
+
+    if (transcriptResult.utterances) {
+      // Combine the utterances for a structured speaker-labeled transcript
+      speakerTranscript = transcriptResult.utterances
+        .map((utterance: any) => `Speaker ${utterance.speaker}: ${utterance.text}`)
+        .join('\n');
+    }
+
+    return {
+      transcript, // The raw transcript without speaker labels
+      speakerTranscript, // The transcript with speaker labels
+    };
+=======
     // Step 4: Return the transcript
     return transcriptResult.text;
+>>>>>>> 173845b35ca929e671026873dedfa8b0569d7c6a
   } catch (error: any) {
     console.error('Error in transcription process:', error.message);
     throw error;
@@ -105,6 +123,14 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       return res.status(500).json({ error: 'Failed to parse form data' });
     }
 
+<<<<<<< HEAD
+    const transcriptionResult = await transcribeVideo(videoFilePath);
+    return NextResponse.json(transcriptionResult); // Return the full transcription result
+  } catch (error: any) {
+    console.error('Error in transcription process:', error.message);
+    return NextResponse.json({ error: 'Error in transcription process: ' + error.message }, { status: 500 });
+  }
+=======
     try {
       const videoFilePath = (files.video as any).filepath; // Extract file path from uploaded video
 
@@ -119,4 +145,5 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       return res.status(500).json({ error: 'Error in transcription process: ' + error.message });
     }
   });
+>>>>>>> 173845b35ca929e671026873dedfa8b0569d7c6a
 }
