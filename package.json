@@ -22,6 +22,7 @@
     "elevenlabs": "^0.16.0",
     "formidable": "^3.5.1",
     "fs": "^0.0.1-security",
+    "gsap": "^3.12.5",
     "lil-gui": "^0.19.2",
     "mongodb": "^3.7.4",
     "mongoose": "^8.6.2",

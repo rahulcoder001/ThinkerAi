@@ -1,287 +1,233 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Playwrite+CU:wght@100..400&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+.ai {
+  display: flex;
+  gap: 4rem; /* Adjust gap between mainai and sideai containers */
+}
+
+.mainai {
+  width: 10vw;
+  height: 18vh;
+  background-color: rgba(45, 42, 42, 0.864);
+  border-radius: 2.4rem;
+  border: 0.1px solid white;
+}
+
+.sideai {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  position: absolute;
+  left: 7%; /* Adjust position as needed */
+  top: 49%;
+}
+
+.sideai .box1 {
+  width: 5vw;
+  height: 10vh;
+  border-radius: 1.2rem;
+  margin-left: 6rem;
+  background-color: rgba(45, 42, 42, 0.864);
+  border: 0.1px solid white;
+  transition: box-shadow 0.5s ease; 
+  display: flex;
+  justify-content: center;
+  align-items: center;/* Smooth transition for the glowing effect */
+}
 
 
-.heading {  
-    font-size: 2.4rem;
-   transform: rotate(-90deg);
-    transform-origin: left top; /* Adjust the origin for better positioning */
-   position: absolute;
-   left: 0.1%;
-   top: 95%;
-  }
 
-  .nav_section{
-    display: flex;
-    gap: 0.6rem;
-    position: absolute;
-    right: 2%;
-    top: 2%;
-  }
-
-  .nav_section .language{
-    font-size: small;
-    width: 5vw;
-    height: 7vh;
-    background-color:  #494949;
-    border-radius: 0.5rem;
-    font-family: "Roboto Mono", monospace;
-  }
-  
-  .nav_section .signin{
-    font-size: small;
-    width: 8vw;
-    height: 7vh;
-    background-color:  #570987cb;
-    border-radius: 0.5rem;
-    color: rgb(171, 63, 201);
-    font-weight: 500;
-    font-family: "Roboto Mono", monospace;
+.sideai .box2{
+  width: 4vw;
+  height: 8vh;
+  background-color: rgba(45, 42, 42, 0.864);
+  border-radius: 1rem;
+  border: 0.1px solid white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.sideai .box3{
+  width: 6vw;
+  height: 11vh;
+  background-color: rgba(45, 42, 42, 0.864);
+  border-radius: 1.4rem;
+  margin-left: 6rem;
+  border: 0.1px solid white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 
-  }
-  
+.sideai1 {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  position: absolute;
+  right: 3%; /* Adjust position to mirror sideai */
+  top: 49%;
+}
 
-  .reveal-letter {
-    opacity: 0;
-    display: inline-block;
-    transform: translateY(20px); /* Start each letter 20px below */
-    animation: reveal 0.5s forwards; /* Apply animation */
-    background: transparent; /* Ensures no background */
-  }
-  
-  /* Keyframes for the reveal animation */
-  @keyframes reveal {
-    to {
-      opacity: 1;
-      transform: translateY(0); /* Move back to original position */
-    }
-  }
-  
-  
-  .language, .signin {
-    background-color: #4CAF50;
-    border: none;
-    color: white;
-    padding: 10px 20px;
-    margin: 5px;
-    cursor: pointer;
-    font-size: 1rem;
-    opacity: 0; /* Hidden initially */
-    transform: translateY(-20px); /* Start slightly off-screen vertically */
-    transition: opacity 0.5s ease, transform 0.5s ease; /* Smooth transition for opacity and position */
-  }
-  
-  .language.show, .signin.show {
-    opacity: 1; /* Fully visible */
-    transform: translateY(0); /* Bring it into its original position */
-  }
-  
-
-
-  .sub_heading{
-    position: absolute;
-    top: 30%;
-    left: 14%;
-    width: 20vw;
-    text-align: right;
-    font-family: "Roboto Mono", monospace;
-    background: none;
-   
-  }
-
-
-  .reveal-sentence {
-    opacity: 0;
-    transform: translateY(100%);
-    animation: reveal 0.5s ease-in-out forwards;
-    color: rgb(178, 89, 203);
-    background: transparent;
-
-  }
-  
-  @keyframes reveal {
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  .sub_heading1{
-     position: absolute;
-     top: 22%;
-     right: 11%;
-     width: 16vw;
-     text-align: right;
-     font-family: "Roboto Mono", monospace;
-     background: none;
+.sideai1 .box1{
+  width: 5vw;
+  height: 10vh;
+  background-color: rgba(45, 42, 42, 0.864);
+  border-radius: 1.2rem;
+  margin-left: 6rem;
+  border: 0.1px solid white;
+  position: relative;
+  top: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.sideai1 .box2{
+  width: 4vw;
+  height: 8vh;
+  background-color: rgba(45, 42, 42, 0.864);
+  border-radius: 1rem;
+  margin-left: 14rem;
+  border: 0.1px solid white;
+  position: relative;
+  bottom: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.sideai1 .box3{
+  width: 6vw;
+  height: 11vh;
+  background-color: rgba(45, 42, 42, 0.864);
+  border-radius: 1.4rem;
+  margin-left: 6rem;
+  border: 0.1px solid white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cyliner{
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  position: relative;
+    bottom: 4rem;
+    right: 0.8rem;
     
-  }
+   
+}
 
-  .sub_heading_part{
-    color: rgb(178, 89, 203);
-  }
+.cyliner1 {
+  width: 1.5vw;
+  height: 1.3vh;
+  background: linear-gradient(45deg, black 10%, white);
+  border-radius: 0.8rem;
+  z-index: 99999;
+  transition: box-shadow 0.3s ease; /* Smooth transition for shadow */
 
-  .sub_heading_part2{
-    background: transparent; /* Ensures no background */
-    position: absolute;
-    right: 0.001%;
-    width: 36vw;
-    font-size: 4rem;
-    top: 30%;
-    font-family: "Roboto Mono", monospace;
-  }
+  /* Glowing effect */
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.6), /* Soft outer glow */
+              0 0 30px rgba(255, 255, 255, 0.4), /* Larger outer glow */
+              0 0 60px rgba(255, 255, 255, 0.2); /* Faintest outer glow */
+}
 
-  .sub_heading3{
-    position: absolute;
-   bottom: 4%;
-    right: 2%;
-    width: 42vw;
-    background: transparent;
-    font-family: "Roboto Mono", monospace;
-    color: gray;
+/* Optional: Glowing effect animation (pulse) */
+@keyframes glow {
+  0% {
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.6), 
+                  0 0 30px rgba(255, 255, 255, 0.4), 
+                  0 0 60px rgba(255, 255, 255, 0.2);
   }
+  50% {
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.8), 
+                  0 0 40px rgba(255, 255, 255, 0.6), 
+                  0 0 80px rgba(255, 255, 255, 0.4);
+  }
+  100% {
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.6), 
+                  0 0 30px rgba(255, 255, 255, 0.4), 
+                  0 0 60px rgba(255, 255, 255, 0.2);
+  }
+}
+
+.cyliner1:hover {
+  animation: glow 1.5s infinite alternate; /* Pulsating glow on hover */
+}
 
 
-  .reveal-letter1 {
-    opacity: 0;
-    display: inline-block;
-    transform: translateY(20px); /* Start each letter 20px below */
-    animation: reveal 0.8s forwards; /* Apply animation */
-    background: transparent;
-    color: gray;
-  }
+.cyliner4{
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  position: relative;
+     bottom: 7rem;
+    left: 7.5rem;
+}
+
+
+
+.cyliner .cyliner1 {
+  position: relative; /* Important to position the pseudo-element relative to this div */
+  width: 1.5vw;
+  height: 1.3vh;
+  background: linear-gradient(45deg, black 10%, white);
+  border-radius: 0.8rem;
+  z-index: 99999;
+}
+
+
+
+.svg1 {
+  position: relative;
+  right: 20rem;
+  bottom: 6.3rem;
+  opacity: 20%;
   
-  @keyframes reveal {
-    to {
-      opacity: 1;
-      transform: translateY(0); /* Move back to original position */
-    }
-  }
+}
 
 
-  .navbar {
-    display: flex;
-    gap: 0.7rem;
-    justify-content: center;
-    align-items: center;
-    width: 8vw;
-    height: 8vh;
-    position: absolute;
-    top: 10%;
-    left: -100%; /* Initially off-screen */
-    background-color: rgba(56, 53, 53, 0.849);
-    transform: rotate(-90deg);
-    border-radius: 0.5rem;
-    opacity: 0; /* Hidden initially */
-    transition: left 1s ease, opacity 1s ease; /* Smooth transition */
-  }
-  
-  .navbar.show {
-    left: 0%; /* Bring it into view */
-    opacity: 1; /* Fully visible */
-  }
+.svg2{
+  position: relative;
+  right: 26.5rem;
+  bottom: 3rem;
+  opacity: 20%;
+}
 
-  @keyframes reveal {
-    0% {
-      opacity: 0; /* Hidden at the start */
-      transform: scale(0.5); /* Start small */
-    }
-    100% {
-      opacity: 1; /* Fully visible at the end */
-      transform: scale(1); /* Back to normal size */
-    }
-  }
-  
-  .redirect {
-    height: 8vw;
-    width: 8vw;
-    border: 3px solid black; /* You can adjust the border and colors */
-    border-radius: 50%;
-    position: relative; /* Relative so SVG can stay within the circle */
-    background-color: white; /* Background color for your circle */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    bottom: 1%;
-    left: 46%;
-    opacity: 0; /* Initially hidden */
-  transition: opacity 0.5s ease-in-out; /* Smooth reveal */
-  animation: reveal 1.5s ease-in-out forwards; /* Animates on load */
+.svg3{
+  position: relative;
+  right: 19rem;
+  top: -2.2rem;
+  opacity: 20%;
+}
 
-  }
-  .redirect:hover {
-    opacity: 1; /* Fully visible when hovered */
-  }
-  
-  .circle-svg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    animation: rotate 4s linear infinite; /* Animation to rotate the whole SVG */
-  }
-  
-  .circle-text {
-    font-size: 1.3vw; /* Adjust to fit your design */
-    font-family: "Roboto Mono", monospace;
-    fill: black; /* Color for the text */
-    letter-spacing: 2px; /* Adjust for spacing */
-  }
-  
-  @keyframes rotate {
-    0% {
-      transform: rotate(0deg); /* Start position */
-    }
-    100% {
-      transform: rotate(360deg); /* Full circle rotation */
-    }
-  }
+.svg6{
+  position: relative;
+  left: 1rem;
+  bottom: 2.3rem;
+  opacity: 20%;
+ 
+}
 
-  @keyframes move {
-    0% {
-      transform: translate(0, 0);
-    }
-    50% {
-      transform: translate(7px, -7px); /* Move 10px right (X) and 10px up (Y) */
-    }
-    100% {
-      transform: translate(0, 0);
-    }
-  }
-  
-  .moving-arrow1{
-    rotate: 135deg;
-    animation: move 1.5s ease-in-out infinite;
-  }
-
-  .rotate-opposite {
-    rotate: -45deg; /* Rotate to -135deg when clicked */
-    transition: rotate 0.5s ease;
-  }
-  
-  
-  
-  @keyframes slide-in {
-    from {
-      transform: translateY(100%);
-    }
-    to {
-      transform: translateY(0);
-    }
-  }
-  
-  @keyframes slide-out {
-    from {
-      transform: translateY(0);
-    }
-    to {
-      transform: translateY(-100%);
-    }
-  }
-/* Initial container state (on page load) */
+.svg7{
+  position: relative;
+  left: 1.3rem;
+  bottom: 5.3rem;
+  opacity: 20%;
+ 
+}
+.svg8{
+  position: relative;
+  left: 1.3rem;
+  bottom: 10rem;
+  opacity: 20%;
+ 
+}
 
 
-/* Slide-up effect (applied when button is clicked) */
+.maintext{
+  text-align: center;
+  font-size: 4rem;
+  background: -webkit-linear-gradient(white, rgba(255, 165, 0, 0.5));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 
