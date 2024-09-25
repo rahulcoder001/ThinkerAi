@@ -1,16 +1,29 @@
+"use client"
 import Navbar from '@/pages/Navbar/Navbar';
 import Image from 'next/image';
 import icon from "../../images/icon.svg";
-import React from 'react';
+import React, { useState } from 'react';
 import ai from "../../images/ai.png"
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/solid';
 import note from "../../images/note.png"
+import multimedia from '../../images/multimedia.png'
+import audio from '../../images/audio.png'
+import ppt from "../../images/ppt.png"
 
 const Page = () => {
+  const[detail,setDetail]=useState(false);
+  const[video,setVideo]=useState(false);
+
+  const handledetail=()=>{
+    setDetail(!detail);
+  }
+  const handlevideo=()=>{
+    setVideo(!video);
+  }
   return (
-    <main>
+    <main >
       <Navbar />
-      <div className="h-screen w-screen bg-gradient-to-b from-orange-100 to-white flex flex-col  items-center pt-16"> {/* Added padding-top */}
+      <div className="h-screen  bg-gradient-to-b from-orange-100 to-white flex flex-col  items-center pt-16"> {/* Added padding-top */}
         <div className="inline-flex items-center bg-black text-white px-3 py-2 m-4 rounded-3xl">
           <Image src={icon} alt="icon" width={24} height={24} className="mr-2" />
           <span className='font-poppins'>Model Serving Your Way</span>
@@ -23,139 +36,99 @@ const Page = () => {
             Design Courses That Make a Difference!
           </h1>
         </div>
-        <div className="flex flex-wrap justify-between mt-5 mx-auto">
-  <div className="max-w-sm rounded-lg overflow-hidden shadow-lg m-4">
-    <Image
-      className="w-full h-48 object-cover rounded-t-lg" // rounded-t-lg for top-rounded corners
-      src={icon}
-      alt="Sunset in the mountains"
-      layout="responsive"
-      width={500}
-      height={300}
-    />
-    <div className="px-6 py-4">
-      <div className="font-bold text-xl mb-2 font-poppins">
-        Unlocking Knowledge: The Power of Detailed Descriptions
-      </div>
-      <p className="text-gray-700 text-base font-poppins">
-        <li> Gain a comprehensive understanding of complex topics.</li>
-        <li> Enhance retention and recall through in-depth analysis.</li>
-        <li> Cater to different learning styles with rich content.</li>
-        <li> Build a solid foundation for future learning and application.</li>
-      </p>
-    </div>
-  </div>
 
-  <div className="max-w-sm rounded-lg overflow-hidden shadow-lg m-4">
-    <Image
-      className="w-full h-48 object-cover rounded-t-lg"
-      src={icon}
-      alt="Sunset in the mountains"
-      layout="responsive"
-      width={500}
-      height={300}
-    />
-    <div className="px-6 py-4">
-      <div className="font-bold text-xl mb-2 font-poppins">
-        The Convenience of PDFs
-      </div>
-      <p className="text-gray-700 text-base font-poppins">
-        <li> Easy to download and access anytime, anywhere.</li>
+        <div className='flex w-screen h-auto justify-between flex-wrap p-5 font-poppins'>
+  {/* Card 1 */}
+  <div className="w-[30%] bg-white shadow-2xl border-orange-100 rounded-lg p-4 m-4 ">
+  <Image src={icon} alt="Icon 1" className="w-full h-48 object-cover rounded-t-lg" />
+  <h3 className="font-bold text-xl mt-2 font-poppins">
+    Unlocking Knowledge: The Power of Detailed Descriptions
+  </h3>
+  <ul className="text-gray-700 text-base mt-2 list-disc list-inside ">
+    <li>Gain a comprehensive understanding of complex topics.</li>
+    <li>Enhance retention and recall through in-depth analysis.</li>
+    <li>Cater to different learning styles with rich content.</li>
+    <li>Build a solid foundation for future learning and application.</li>
+  </ul>
+</div>
+
+  {/* Card 2 */}
+  <div className="w-[30%] bg-white shadow-2xl rounded-lg p-4 m-4">
+    <Image src={icon} alt="Icon 2" className="w-full h-48 object-cover rounded-t-lg" />
+    <h3 className="font-bold text-xl mt-2"> The Convenience of PDFs
+    </h3>
+    <p className="text-gray-700 text-base mt-2">
+    <li> Easy to download and access anytime, anywhere.</li>
         <li> Printable format for offline study and annotation.</li>
         <li> Organized layout makes it simple to navigate key points.</li>
         <li> Searchable text allows quick reference to specific information.</li>
-      </p>
-    </div>
+
+    </p>
   </div>
 
-  <div className="max-w-sm rounded-lg overflow-hidden shadow-lg m-4">
-    <Image
-      className="w-full h-48 object-cover rounded-t-lg"
-      src={icon}
-      alt="Sunset in the mountains"
-      layout="responsive"
-      width={500}
-      height={300}
-    />
-    <div className="px-6 py-4">
-      <div className="font-bold text-xl mb-2 font-poppins">
-        Learning on the Go: The Benefits of Audio
-      </div>
-      <p className="text-gray-700 text-base font-poppins">
-        <li> Listen while commuting, exercising, or multitasking.</li>
+  {/* Card 3 */}
+  <div className="w-[30%] bg-white shadow-2xl rounded-lg p-4 m-4">
+    <Image src={icon} alt="Icon 3" className="w-full h-48 object-cover rounded-t-lg" />
+    <h3 className="font-bold text-xl mt-2"> Learning on the Go: The Benefits of Audio
+    </h3>
+    <p className="text-gray-700 text-base mt-2">
+    <li> Listen while commuting, exercising, or multitasking.</li>
         <li> Engaging auditory learning experience enhances comprehension.</li>
         <li> Suitable for auditory learners who absorb information better through sound.</li>
         <li> Reinforces learning through repeated listening for deeper understanding.</li>
-      </p>
-    </div>
-  </div>
 
-  <div className="max-w-sm rounded-lg overflow-hidden shadow-lg m-4">
-    <Image
-      className="w-full h-48 object-cover rounded-t-lg"
-      src={icon}
-      alt="Sunset in the mountains"
-      layout="responsive"
-      width={500}
-      height={300}
-    />
-    <div className="px-6 py-4">
-      <div className="font-bold text-xl mb-2 font-poppins">
-        Visual Learning: The Impact of Video
-      </div>
-      <p className="text-gray-700 text-base font-poppins">
-        <li> Dynamic presentations bring topics to life with visuals and animations.</li>
+    </p>
+  </div>
+</div>
+
+<div className='flex w-screen h-auto justify-between flex-wrap p-5 font-poppins'>
+  {/* Card 1 */}
+  <div className="w-[30%] bg-white shadow-2xl border-orange-100 rounded-lg p-4 m-4 ">
+  <Image src={icon} alt="Icon 1" className="w-full h-48 object-cover rounded-t-lg" />
+  <h3 className="font-bold text-xl mt-2 font-poppins">
+  Visual Learning: The Impact of Video
+  </h3>
+  <ul className="text-gray-700 text-base mt-2 list-disc list-inside ">
+  <li> Dynamic presentations bring topics to life with visuals and animations.</li>
         <li> Engaging storytelling captures attention and maintains interest.</li>
         <li> Facilitates understanding of complex concepts through demonstrations.</li>
         <li> Accessible for visual learners, combining audio and visual stimuli.</li>
-      </p>
-    </div>
-  </div>
 
-  <div className="max-w-sm rounded-lg overflow-hidden shadow-lg m-4">
-    <Image
-      className="w-full h-48 object-cover rounded-t-lg"
-      src={icon}
-      alt="Sunset in the mountains"
-      layout="responsive"
-      width={500}
-      height={300}
-    />
-    <div className="px-6 py-4">
-      <div className="font-bold text-xl mb-2 font-poppins">
-        Extracting Insights: Text from Video Content
-      </div>
-      <p className="text-gray-700 text-base font-poppins">
-        <li> Quick reference for key points discussed in the video.</li>
-        <li> Helps reinforce learning through written summaries.</li>
-        <li> Ideal for creating notes and study materials efficiently.</li>
-        <li> Assists in retaining information by reviewing text alongside video.</li>
-      </p>
-    </div>
-  </div>
+  </ul>
+</div>
 
-  <div className="max-w-sm rounded-lg overflow-hidden shadow-lg m-4">
-    <Image
-      className="w-full h-48 object-cover rounded-t-lg"
-      src={icon}
-      alt="Sunset in the mountains"
-      layout="responsive"
-      width={500}
-      height={300}
-    />
-    <div className="px-6 py-4 mt-5">
-      <div className="font-bold text-xl mb-2 font-poppins">
-        PowerPoint: A Structured Approach to Learning
-      </div>
-      <p className="text-gray-700 text-base font-poppins">
-        <li> Visually appealing format enhances engagement and retention.</li>
+  {/* Card 2 */}
+  <div className="w-[30%] bg-white shadow-2xl rounded-lg p-4 m-4">
+    <Image src={icon} alt="Icon 2" className="w-full h-48 object-cover rounded-t-lg" />
+    <h3 className="font-bold text-xl mt-2"> PowerPoint: A Structured Approach to Learning
+
+    </h3>
+    <p className="text-gray-700 text-base mt-2">
+    <li> Visually appealing format enhances engagement and retention.</li>
         <li> Easy to highlight key concepts and takeaways.</li>
         <li> Perfect for summarizing content for presentations or group discussions.</li>
         <li> Flexible for both individual study and collaborative learning environments.</li>
-      </p>
-    </div>
+
+    </p>
+  </div>
+
+  {/* Card 3 */}
+  <div className="w-[30%] bg-white shadow-2xl rounded-lg p-4 m-4">
+    <Image src={icon} alt="Icon 3" className="w-full h-48 object-cover rounded-t-lg" />
+    <h3 className="font-bold text-xl mt-2"> Extracting Insights: Text from Video Content
+
+    </h3>
+    <p className="text-gray-700 text-base mt-2">
+    <li> Quick reference for key points discussed in the video.</li>
+        <li> Helps reinforce learning through written summaries.</li>
+        <li> Ideal for creating notes and study materials efficiently.</li>
+        <li> Assists in retaining information by reviewing text alongside video.</li>
+
+
+    </p>
   </div>
 </div>
+       
 <div className="flex items-center justify-center py-10 bg-white mt-4">
       {/* Left Arrow Icons */}
       <div className="flex items-center space-x-2">
@@ -195,12 +168,68 @@ const Page = () => {
         Discover the AI Realm
       </div>
     </div>
-    <button className='w-auto border-2 border-gray-100 flex justify-center items-center rounded-xl mt-5'>
-      <Image src={note} alt='text' className='h-10 w-10 mt-3 mb-3 ml-3'/>
-      <p className='font-poppins m-3 text-2xl font-medium'>
-        Generate detailed description
-      </p>
-    </button>
+    <div className='flex flex-wrap justify-center space-x-5'>
+  <button className='flex items-center border-2 border-gray-200 rounded-xl p-3 m-3 hover:bg-gray-100 transition ease-in-out duration-200' onClick={handledetail}>
+    <Image src={note} alt='text' className='h-10 w-10' />
+    <p className='font-poppins ml-4 text-xl font-medium'>Generate detailed description</p>
+  </button>
+
+  <button className='flex items-center border-2 border-gray-200 rounded-xl p-3 m-3 hover:bg-gray-100 transition ease-in-out duration-200 ' onClick={handlevideo}>
+    <Image src={multimedia} alt='text' className='h-10 w-10' />
+    <p className='font-poppins ml-4 text-xl font-medium'>Get Text from video</p>
+  </button>
+</div>
+
+<div className='flex flex-wrap justify-center space-x-5'>
+  <button className='flex items-center border-2 border-gray-200 rounded-xl p-3 m-3 hover:bg-gray-100 transition ease-in-out duration-200'>
+    <Image src={audio} alt='text' className='h-10 w-10' />
+    <p className='font-poppins ml-4 text-xl font-medium'>Generate audio from Text</p>
+  </button>
+
+  <button className='flex items-center border-2 border-gray-200 rounded-xl p-3 m-3 hover:bg-gray-100 transition ease-in-out duration-200'>
+    <Image src={ppt} alt='text' className='h-10 w-10' />
+    <p className='font-poppins ml-4 text-xl font-medium'>Generate ppt from text</p>
+  </button>
+</div>
+{detail && (
+  <div className='m-5 flex w-screen'>
+    {/* Search bar: Longer width */}
+    <input
+      type="text"
+      className='m-5 border-2 bg-gray-100 border-gray-300 outline-none rounded-xl font-poppins h-14 w-[80%] px-4'
+      placeholder="Write a message here..."
+    />
+    
+    {/* Language input: Smaller width */}
+    <input
+      type="text"
+      placeholder="Language"
+      className='m-5 border-2 bg-gray-100 border-gray-300 outline-none rounded-xl font-poppins h-14 w-[20%] px-4'
+    />
+  </div>
+)}
+
+{video && (
+  <div className='m-5 font-poppins w-[50%]'>
+    {/* Hidden file input */}
+    <input
+      id="file-upload"
+      type="file"
+      className="hidden"
+      accept=".mp4"
+    />
+
+    {/* Custom styled label */}
+    <label
+      htmlFor="file-upload"
+      className='border-2 border-gray-300 outline-none rounded-xl font-poppins h-14 w-full px-4 flex items-center justify-center cursor-pointer bg-white hover:bg-blue-200 transition duration-200'
+    >
+      Upload Video (.mp4)
+    </label>
+  </div>
+)}
+
+
   </div>
 </div>
    
