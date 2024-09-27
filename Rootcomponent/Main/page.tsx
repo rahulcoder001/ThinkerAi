@@ -5,6 +5,7 @@ import styles1 from "./main.module.css";
 import { gsap } from "gsap";
 import { MotionPathPlugin } from "gsap/MotionPathPlugin";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 gsap.registerPlugin(MotionPathPlugin);
 
@@ -13,6 +14,17 @@ gsap.registerPlugin(MotionPathPlugin);
 const Main = () => {
   const [loadingComplete, setLoadingComplete] = useState(false);
   const [showMainContent, setShowMainContent] = useState(false);
+  const [isAnimating, setIsAnimating] = useState(false);
+  const router=useRouter();
+
+  const handleClick = () => {
+    setIsAnimating(true);
+
+    // Delay the navigation until after the animation
+    setTimeout(() => {
+      router.push("/rahul");
+    }, 1000); // Match the delay to the animation duration (1 second here)
+  };
 
   const [glow, setGlow] = useState(false);
 
@@ -309,8 +321,10 @@ const Main = () => {
               marginTop: "2rem",
               marginLeft: "13rem",
             }}
+            className={`page ${isAnimating ? "up" : ""}`}
           >
             <button
+            
               style={{
                 height: "6vh",
                 width: "7vw",
@@ -323,6 +337,7 @@ const Main = () => {
                 fontSize: "0.6rem",
                 fontWeight: "bolder",
               }}
+              onClick={handleClick}
             >
               Get started
             </button>

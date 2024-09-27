@@ -77,7 +77,7 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <nav className={styles.sidebar}>
-        <div className={styles.logo}>THINKER.AI</div>
+        <div className={styles.logo}>EDUBOTIX</div>
         <h1 style={{ color: 'grey' }}>Features</h1>
         <div className={styles.navLinks}>
           <a href="#">Dashboard</a>
@@ -160,16 +160,8 @@ export default function Home() {
                 {loading ? 'Sending...' : 'Send'}
               </button>
 
-              {/* Video upload section */}
-              <div className="flex items-center justify-center w-full">
-                <label className="flex flex-col items-center px-4 py-6 bg-white rounded-lg shadow-lg tracking-wide uppercase border border-blue-500 cursor-pointer hover:bg-blue-500 hover:text-white text-blue-500 transition-all duration-200 ease-in-out">
-                  <svg className="w-8 h-8" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                    <path d="M16.88 5.22A3 3 0 0 0 14.5 4h-9a3 3 0 0 0-2.38 1.22L1 8.5V17a3 3 0 0 0 3 3h12a3 3 0 0 0 3-3V8.5l-2.12-3.28zM10 15l-3.5-3.5L8 10l2 2 4-4 1.5 1.5L10 15z" />
-                  </svg>
-                  <span className="mt-2 text-base leading-normal">Select a video file</span>
-                  <input type="file" className="hidden" accept=".mp4" onChange={handleVideoUpload} />
-                </label>
-              </div>
+              
+              
             </div>
           </div>
         </section>

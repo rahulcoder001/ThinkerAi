@@ -4,7 +4,7 @@ import logo from "/public/images/nav.jpg";
 
 const Navbar = () => {
   return (
-    <nav className="fixed top-0 left-1/4 right-1/4 text-white bg-[#18181b] shadow-lg rounded-xl py-1 px-4 mt-4 max-w-4xl mx-auto">
+    <nav className="fixed top-0 left-1/4 right-1/4 text-white bg-[#18181b] shadow-lg rounded-3xl py-1 px-4 mt-4 max-w-4xl mx-auto">
       <ul className="flex justify-between items-center">
         <li>
           <Image 

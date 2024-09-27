@@ -2,7 +2,7 @@ import React from 'react';
 
 const Navbar = () => {
   return (
-    <nav className="bg-black text-white py-4 fixed top-0 left-0 w-full flex items-center">
+    <nav className=" text-white py-4 fixed top-0 left-0 w-full flex items-center mt-2 ">
       {/* Logo Container on the left */}
       <div style={{ display: 'flex', alignItems: 'center', marginLeft: '20px' }}>
         <img

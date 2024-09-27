@@ -3,9 +3,13 @@
 }
   
 body {
-    background: linear-gradient(to bottom, #FFEDD5, #FFFFFF);
-    height: 100vh;
-    /* overflow: hidden; */
+  
+  background: 
+  radial-gradient(circle at top right, rgba(255, 165, 0, 0.5), transparent 30%),
+  linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px) 0 0 / 100px 100%,
+  linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px) 0 0 / 100% 100px;
+    height: 85vh;
+    
 }
 
 .wid{
@@ -23,6 +27,31 @@ body {
               );
     background-color: black;
     overflow: hidden;
+    height: 47vh;
+}
+
+.svgpath{
+  position: relative;
+  top: 3.5rem;
+  opacity: 0.4;
+}
+.svgpath1{
+  position: relative;
+  opacity: 0.1;
+ bottom: 17rem;
+ 
+}
+
+.vertical_lines{
+  display: flex;
+  flex-direction: row;
+  gap: 4rem;
+}
+
+.horizontal_lines{
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
 }
   
   .grid {
@@ -31,6 +60,7 @@ body {
     grid-template-rows: repeat(5, 1fr);    /* 5 rows */
     height: 100%;
     position: relative; /* Ensure positioning for pseudo-elements */
+    
   }
   
   /* Thin lines for grid */
@@ -107,14 +137,70 @@ body {
     margin-top: 80px; /* Adjust this value according to your navbar height */
   }
   
-  .animate-child {
-    opacity: 0;
-    transform: scale(0);
-    transition: all 1.6s ease-out;
+
+
+  @keyframes revealFromBottom {
+    0% {
+      opacity: 0;
+      transform: translateY(50px); /* Start below */
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0); /* End at original position */
+    }
   }
   
-  .animate-child.animated {
-    opacity: 1;
-    transform: scale(1);
+  .animate-child span {
+    display: inline-block;
+    opacity: 0;
+    animation: revealFromBottom 0.8s ease forwards;
   }
+  
+  .animate-child span:nth-child(1) {
+    animation-delay: 0.3s; /* Delay for the first line */
+  }
+  
+  .animate-child span:nth-child(2) {
+    animation-delay: 0.6s; /* Delay for the second line */
+  }
+  
+
+
+  @keyframes revealFromBottom {
+    0% {
+      opacity: 0;
+      transform: translateY(50px); /* Start below */
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0); /* End at original position */
+    }
+  }
+  
+  .reveal-animation {
+    opacity: 0; /* Start hidden */
+    animation: revealFromBottom 0.5s ease forwards;
+    animation-delay: 0.9s; /* Optional delay for effect */
+  }
+  
+
+
+  @keyframes slideInRight {
+    0% {
+      opacity: 0;
+      transform: translateX(30px); /* Off-screen to the right */
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0); /* In its final position */
+    }
+  }
+  
+  .slide-animation {
+    animation: slideInRight 0.5s ease forwards;
+    /* Optional: delay before the animation starts */
+    animation-delay: 0.5s; 
+  }
+  
+ 
   

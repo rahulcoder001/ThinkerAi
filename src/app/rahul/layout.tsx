@@ -1,6 +1,7 @@
 import "./style.css";
 import AuthProvider from "../../../(component)/AuthProvider";
-import Navbar from "@/pages/Navbar/Navbar";
+import Navbar from "../../../Rootcomponent/Navbar/page";
+
 
 export default function RootLayout({
   children,
@@ -10,7 +11,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <AuthProvider>
-        <body>
+        <body style={{backgroundColor:'black'}}>
             <Navbar />
             {children}
         </body>

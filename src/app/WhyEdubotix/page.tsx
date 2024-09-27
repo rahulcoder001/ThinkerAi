@@ -1,5 +1,5 @@
 "use client"
-import Navbar from '@/pages/Navbar/Navbar';
+
 import Image from 'next/image';
 import icon from "../../images/icon.svg";
 import React, { useState } from 'react';
@@ -9,6 +9,8 @@ import note from "../../images/note.png"
 import multimedia from '../../images/multimedia.png'
 import audio from '../../images/audio.png'
 import ppt from "../../images/ppt.png"
+import Navbar from '../../../Rootcomponent/Navbar/page';
+import styles from './edubotix.module.css'
 
 const Page = () => {
   const[detail,setDetail]=useState(false);
@@ -21,18 +23,18 @@ const Page = () => {
     setVideo(!video);
   }
   return (
-    <main >
-      <Navbar />
-      <div className="h-screen  bg-gradient-to-b from-orange-100 to-white flex flex-col  items-center pt-16"> {/* Added padding-top */}
+    <main className={styles.maincontent} style={{backgroundColor:'black'}}  >
+      <Navbar/>
+      <div className="h-screen  bg-gradient-to-b  flex flex-col  items-center pt-16"> {/* Added padding-top */}
         <div className="inline-flex items-center bg-black text-white px-3 py-2 m-4 rounded-3xl">
           <Image src={icon} alt="icon" width={24} height={24} className="mr-2" />
           <span className='font-poppins'>Model Serving Your Way</span>
         </div>
         <div className="flex flex-col items-center text-center mb-8"> {/* Added margin-bottom */}
-          <h1 className='text-5xl font-bold font-poppins'>
+          <h1 className='text-4xl font-bold font-poppins'>
             From Idea to Impact
           </h1>
-          <h1 className='text-5xl font-bold font-poppins mt-2'>
+          <h1 className='text-4xl font-bold font-poppins mt-2'>
             Design Courses That Make a Difference!
           </h1>
         </div>
@@ -57,13 +59,12 @@ const Page = () => {
     <Image src={icon} alt="Icon 2" className="w-full h-48 object-cover rounded-t-lg" />
     <h3 className="font-bold text-xl mt-2"> The Convenience of PDFs
     </h3>
-    <p className="text-gray-700 text-base mt-2">
+    <div className="text-gray-700 text-base mt-2">
     <li> Easy to download and access anytime, anywhere.</li>
         <li> Printable format for offline study and annotation.</li>
         <li> Organized layout makes it simple to navigate key points.</li>
         <li> Searchable text allows quick reference to specific information.</li>
-
-    </p>
+    </div>
   </div>
 
   {/* Card 3 */}
@@ -71,13 +72,13 @@ const Page = () => {
     <Image src={icon} alt="Icon 3" className="w-full h-48 object-cover rounded-t-lg" />
     <h3 className="font-bold text-xl mt-2"> Learning on the Go: The Benefits of Audio
     </h3>
-    <p className="text-gray-700 text-base mt-2">
+    <div className="text-gray-700 text-base mt-2">
     <li> Listen while commuting, exercising, or multitasking.</li>
         <li> Engaging auditory learning experience enhances comprehension.</li>
         <li> Suitable for auditory learners who absorb information better through sound.</li>
         <li> Reinforces learning through repeated listening for deeper understanding.</li>
 
-    </p>
+    </div>
   </div>
 </div>
 
@@ -103,13 +104,13 @@ const Page = () => {
     <h3 className="font-bold text-xl mt-2"> PowerPoint: A Structured Approach to Learning
 
     </h3>
-    <p className="text-gray-700 text-base mt-2">
+    <div className="text-gray-700 text-base mt-2">
     <li> Visually appealing format enhances engagement and retention.</li>
         <li> Easy to highlight key concepts and takeaways.</li>
         <li> Perfect for summarizing content for presentations or group discussions.</li>
         <li> Flexible for both individual study and collaborative learning environments.</li>
 
-    </p>
+    </div>
   </div>
 
   {/* Card 3 */}
@@ -118,14 +119,14 @@ const Page = () => {
     <h3 className="font-bold text-xl mt-2"> Extracting Insights: Text from Video Content
 
     </h3>
-    <p className="text-gray-700 text-base mt-2">
+    <div className="text-gray-700 text-base mt-2">
     <li> Quick reference for key points discussed in the video.</li>
         <li> Helps reinforce learning through written summaries.</li>
         <li> Ideal for creating notes and study materials efficiently.</li>
         <li> Assists in retaining information by reviewing text alongside video.</li>
 
 
-    </p>
+    </div>
   </div>
 </div>
        
@@ -160,35 +161,46 @@ const Page = () => {
       </div>
     </div>
     <div className='w-full h-auto'>
-  <div className="flex items-center flex-col justify-center w-full p-5 m-5 border-4 h-auto border-violet-100 box-border rounded-xl">
-    <div className="w-96 h-96 bg-gradient-to-b  from-blue-100 to-green-50 rounded-full flex flex-col items-center justify-center mt-12">
+  <div className="flex items-center flex-col justify-center w-full p-5 m-5  h-auto  rounded-xl">
+    <div className=" bg-gradient-to-b  from-blue-100 to-green-50 rounded-full flex flex-col items-center justify-center mt-12" style={{
+      height:'15rem',
+      width:'15rem'
+    }}>
       {/* Centering the image */}
       <Image src={ai} alt='ai' className='h-16 w-16' />
-      <div className='font-poppins text-3xl font-bold mt-2'>
+      <div className='font-poppins text-1xl font-bold mt-2 text-black'>
         Discover the AI Realm
       </div>
     </div>
     <div className='flex flex-wrap justify-center space-x-5'>
   <button className='flex items-center border-2 border-gray-200 rounded-xl p-3 m-3 hover:bg-gray-100 transition ease-in-out duration-200' onClick={handledetail}>
     <Image src={note} alt='text' className='h-10 w-10' />
-    <p className='font-poppins ml-4 text-xl font-medium'>Generate detailed description</p>
+    <p className='font-poppins ml-4 font-medium' style={{
+      fontSize:'1rem'
+    }}>Generate detailed description</p>
   </button>
 
   <button className='flex items-center border-2 border-gray-200 rounded-xl p-3 m-3 hover:bg-gray-100 transition ease-in-out duration-200 ' onClick={handlevideo}>
     <Image src={multimedia} alt='text' className='h-10 w-10' />
-    <p className='font-poppins ml-4 text-xl font-medium'>Get Text from video</p>
+    <p className='font-poppins ml-4 font-medium' style={{
+      fontSize:'1rem'
+    }}>Get Text from video</p>
   </button>
 </div>
 
 <div className='flex flex-wrap justify-center space-x-5'>
   <button className='flex items-center border-2 border-gray-200 rounded-xl p-3 m-3 hover:bg-gray-100 transition ease-in-out duration-200'>
     <Image src={audio} alt='text' className='h-10 w-10' />
-    <p className='font-poppins ml-4 text-xl font-medium'>Generate audio from Text</p>
+    <p className='font-poppins ml-4 text-xl font-medium' style={{
+      fontSize:'1rem'
+    }}>Generate audio from Text</p>
   </button>
 
   <button className='flex items-center border-2 border-gray-200 rounded-xl p-3 m-3 hover:bg-gray-100 transition ease-in-out duration-200'>
     <Image src={ppt} alt='text' className='h-10 w-10' />
-    <p className='font-poppins ml-4 text-xl font-medium'>Generate ppt from text</p>
+    <p className='font-poppins ml-4 text-xl font-medium' style={{
+      fontSize:'1rem'
+    }}>Generate ppt from text</p>
   </button>
 </div>
 {detail && (

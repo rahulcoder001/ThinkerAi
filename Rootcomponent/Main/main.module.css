@@ -231,3 +231,40 @@
 }
 
 
+/* Slide the current page up and the new page in from the bottom */
+@keyframes slideUp {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.page {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  transition: transform 1s ease-in-out;
+}
+
+.page.up {
+  animation: slideUp 1s forwards;
+}
+
+.page.in {
+  animation: slideIn 1s forwards;
+}
+
+
