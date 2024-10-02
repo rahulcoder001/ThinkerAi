@@ -3,7 +3,7 @@ import { ElevenLabsClient, ElevenLabs } from 'elevenlabs';
 import fs from 'fs';
 import path from 'path';
 
-const client = new ElevenLabsClient({ apiKey: 'sk_6647a2d19072f6407cfda51dfea99e98a4ade62d446c1415' });
+const client = new ElevenLabsClient({ apiKey: 'sk_199492564f936c83e8b1054bc6c2533315d14b2c2e3ffa47' });
 
 export async function POST(req: Request): Promise<Response> {  // Explicitly set the return type as Promise<Response>
     const { text } = await req.json();
