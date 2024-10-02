@@ -17,14 +17,14 @@ async function generateFormattedContent(prompt: string) {
     `;
 
     const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
-    const result = await model.generateContent(formattedPrompt);
+    const result:any = await model.generateContent(formattedPrompt);
 
     const contentParts = result?.response?.candidates[0]?.content?.parts;
     if (!contentParts || contentParts.length === 0) {
       throw new Error("No text content available in the response.");
     }
 
-    const formattedContent = contentParts.map(part => part.text).join("\n");
+    const formattedContent = contentParts.map((part:any) => part.text).join("\n");
 
     const currentDir = path.resolve();
     const textFilePath = path.join(currentDir, 'generated_content.txt');
@@ -36,7 +36,7 @@ async function generateFormattedContent(prompt: string) {
     console.log('PDF URL:', pdfUrl);
 
     return { content: formattedContent, pdfUrl };
-  } catch (error) {
+  } catch (error:any) {
     console.error("Error generating formatted content:", error.message || error);
     return { error: "An error occurred while generating content." };
   }

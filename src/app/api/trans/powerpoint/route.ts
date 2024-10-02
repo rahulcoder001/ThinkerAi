@@ -7,7 +7,7 @@ const BEARER_TOKEN = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hc
 const GENERATE_URL = 'https://gen.powerpointgeneratorapi.com/v1.0/generator/create';
 
 
-export async function POST(request) {
+export async function POST(request:any) {
   try {
     // Extracting data from the request body
     const requestBody = await request.json();
@@ -31,7 +31,7 @@ export async function POST(request) {
       status: response.status,
       headers: { 'Content-Type': 'application/json' },
     });
-  } catch (error) {
+  } catch (error:any) {
     // Enhanced error logging
     console.error('Error generating PPT:', error.message || error);
 

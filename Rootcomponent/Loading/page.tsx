@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-const Loading = ({ onAnimationComplete }) => {
+const Loading:any = ({ onAnimationComplete }:any) => {
   const [circleVisible, setCircleVisible] = useState(false);
   const [imageVisible, setImageVisible] = useState(false);
   const [circlePosition, setCirclePosition] = useState(0);
@@ -93,7 +93,7 @@ const Loading = ({ onAnimationComplete }) => {
   );
 };
 
-const styles = {
+const styles:any = {
   container: {
     display: 'flex',
     justifyContent: 'center',

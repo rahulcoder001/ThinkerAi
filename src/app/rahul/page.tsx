@@ -43,8 +43,8 @@ export default function AnimatedSection() {
   const [yes, setYes] = useState(true);
 
   useEffect(() => {
-    const svgElement = document.querySelector(".svg1");
-    const sparkleElement = document.querySelector(".sparkle");
+    const svgElement:any = document.querySelector(".svg1");
+    const sparkleElement:any = document.querySelector(".sparkle");
 
     const updateSparkleAnimation = () => {
       
@@ -77,8 +77,8 @@ export default function AnimatedSection() {
   }, []);
 
   useEffect(() => {
-    const svgElement = document.querySelector(".svg2");
-    const sparkleElement = document.querySelector(".sparkle1");
+    const svgElement:any = document.querySelector(".svg2");
+    const sparkleElement:any = document.querySelector(".sparkle1");
 
     const updateSparkleAnimation = () => {
       
@@ -110,8 +110,8 @@ export default function AnimatedSection() {
     };
   }, []);
   useEffect(() => {
-    const svgElement = document.querySelector(".svg3");
-    const sparkleElement = document.querySelector(".sparkle2");
+    const svgElement:any = document.querySelector(".svg3");
+    const sparkleElement:any = document.querySelector(".sparkle2");
 
     const updateSparkleAnimation = () => {
       
@@ -269,7 +269,7 @@ Edubotix empowers teachers with cutting-edge AI tools to enhance their teaching 
   );
 }
 
-const sparkleStyle = {
+const sparkleStyle:any = {
   width: "30px", // Length of the sparkle
   height: "2px", // Thickness of the sparkle
   background: "linear-gradient(to right, rgba(255, 165, 0, 0), orange, rgba(255, 165, 0, 0))", // Gradient for glowing effect

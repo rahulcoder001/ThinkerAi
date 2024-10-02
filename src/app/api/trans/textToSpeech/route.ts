@@ -1,4 +1,3 @@
-// src/app/api/trans/textToSpeech/route.ts
 import { NextResponse } from 'next/server';
 import { ElevenLabsClient, ElevenLabs } from 'elevenlabs';
 import fs from 'fs';
@@ -6,7 +5,7 @@ import path from 'path';
 
 const client = new ElevenLabsClient({ apiKey: 'sk_903e557b6efebd6eb1db4dfbddcd7e7d47a4b49be6121dc1' });
 
-export async function POST(req: Request) {
+export async function POST(req: Request): Promise<Response> {  // Explicitly set the return type as Promise<Response>
     const { text } = await req.json();
 
     if (!text) {
@@ -30,14 +29,14 @@ export async function POST(req: Request) {
         const fileStream = fs.createWriteStream(outputFilePath);
         responseStream.pipe(fileStream);
 
-        return new Promise((resolve) => {
+        return new Promise<Response>((resolve, reject) => {
             fileStream.on('finish', () => {
                 resolve(NextResponse.json({ message: `Speech saved to ${outputFilePath}` }));
             });
 
             fileStream.on('error', (error) => {
                 console.error("Error writing file:", error);
-                resolve(NextResponse.json({ error: 'Error saving speech' }, { status: 500 }));
+                reject(NextResponse.json({ error: 'Error saving speech' }, { status: 500 }));
             });
         });
 

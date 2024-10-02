@@ -4,11 +4,7 @@ import fs from 'fs';
 import path from 'path'; // Import path module for handling file paths
 
 // Disable body parsing to handle file uploads
-export const config = {
-  api: {
-    bodyParser: false,
-  },
-};
+
 
 // Replace with your AssemblyAI API key
 const apiKey: string = '45cd511961cc49359f041d18cabad590';

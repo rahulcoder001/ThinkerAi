@@ -30,7 +30,7 @@ const Main = () => {
   const [glow, setGlow] = useState(false);
 
   useEffect(() => {
-    const svgElement = document.querySelector(".svgpath");
+    const svgElement:any = document.querySelector(".svgpath");
     const sparkleElement = document.querySelector(".sparkle");
 
     const updateSparkleAnimation = () => {
@@ -67,7 +67,7 @@ const Main = () => {
     };
   }, []);
   useEffect(() => {
-    const svgElement = document.querySelector(".svgpath1");
+    const svgElement:any = document.querySelector(".svgpath1");
     const sparkleElement = document.querySelector(".sparkle1");
 
     const updateSparkleAnimation = () => {
@@ -103,7 +103,7 @@ const Main = () => {
     };
   }, []);
   useEffect(() => {
-    const svgElement = document.querySelector(".svgpath2");
+    const svgElement:any = document.querySelector(".svgpath2");
     const sparkleElement = document.querySelector(".sparkle2");
 
     const updateSparkleAnimation = () => {
@@ -139,7 +139,7 @@ const Main = () => {
     };
   }, []);
   useEffect(() => {
-    const svgElement = document.querySelector(".svgpath3");
+    const svgElement:any = document.querySelector(".svgpath3");
     const sparkleElement = document.querySelector(".sparkle3");
 
     const updateSparkleAnimation = () => {
@@ -175,7 +175,7 @@ const Main = () => {
     };
   }, []);
   useEffect(() => {
-    const svgElement = document.querySelector(".svgpath4");
+    const svgElement:any = document.querySelector(".svgpath4");
     const sparkleElement = document.querySelector(".sparkle4");
 
     const updateSparkleAnimation = () => {
@@ -211,7 +211,7 @@ const Main = () => {
     };
   }, []);
   useEffect(() => {
-    const svgElement = document.querySelector(".svgpath5");
+    const svgElement:any = document.querySelector(".svgpath5");
     const sparkleElement = document.querySelector(".sparkle5");
 
     const updateSparkleAnimation = () => {
@@ -653,7 +653,7 @@ const Main = () => {
 };
 
 
-const sparkleStyle = {
+const sparkleStyle:any = {
   width: "30px", // Length of the arrow
   height: "2px", // Thickness of the arrow
   background: "linear-gradient(to right, rgba(255, 165, 0, 0), orange, rgba(255, 165, 0, 0))", // Gradient from transparent to orange to transparent
@@ -666,7 +666,7 @@ const sparkleStyle = {
 };
 
 
-const styles = {
+const styles:any = {
   container: {
     position: "relative",
     width: "100%",
