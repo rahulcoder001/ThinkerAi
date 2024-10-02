@@ -1,13 +1,14 @@
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import axios from 'axios';
 
-const API_KEY = '143e0a6223824cd8a29ba05135057cd8'; // Your API key
+const API_KEY = '3b2931f60f0340ed8e6210850bca8a65'; // Your API key
 const replicaId = 'r79e1c033f'; // Existing replica ID
-const customScript = "A magnetic field is a force field created by moving electric charges or magnetic materials, characterized by poles, flux, attraction, repulsion, and its influence on current and induction."; // Your script
+// const customScript = "A magnetic field is a force field created by moving electric charges or magnetic materials, characterized by poles, flux, attraction, repulsion, and its influence on current and induction."; // Your script
 
 // Function to generate video with custom script
-export async function POST(request: Request) {
+export async function POST(request: NextRequest) {
   try {
+    const { customScript } = await request.json();
     const response = await axios.post('https://tavusapi.com/v2/videos', {
       replica_id: replicaId,
       script: customScript
@@ -24,7 +25,7 @@ export async function POST(request: Request) {
     // Start checking the video status
     const videoStatus = await checkVideoStatus(videoId);
 
-    return NextResponse.json({ message: 'Video generation started', videoStatus });
+    return NextResponse.json({ message: 'Video generation started', videoStatus: videoStatus.download_url });
   } catch (error:any) {
     console.error('Error generating video:', error.response ? error.response.data : error.message);
     return NextResponse.json({ message: 'Error generating video', error: error.message }, { status: 500 });

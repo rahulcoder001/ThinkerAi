@@ -1,9 +1,5 @@
-### Newton's Laws of Motion: A 5-Line Summary
+## Mango: A Tropical Delight
 
-Newton's laws of motion are fundamental principles that describe the behavior of objects in motion. They are:
+### A Single Sentence About Mango
 
-1. **First Law:** An object at rest stays at rest, and an object in motion stays in motion with the same speed and direction unless acted upon by an unbalanced force.
-2. **Second Law:** The acceleration of an object is directly proportional to the net force acting on it and inversely proportional to its mass.
-3. **Third Law:** For every action, there is an equal and opposite reaction.
-
-These laws form the foundation of classical mechanics and are essential for understanding the motion of everything from planets to cars. 
+Mango, a sweet and juicy stone fruit native to South Asia, is renowned for its vibrant flavor and aroma, making it a beloved tropical treat worldwide. 

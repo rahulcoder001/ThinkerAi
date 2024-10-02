@@ -20,9 +20,9 @@
   .commonprompts{
     display: flex;
     gap: 3rem;
-    position: absolute;
-    left: 31%;
-    top: 43%;
+    position: relative;
+    left: 25rem;
+    top: 6rem;
   }
 
   .commonprompts .box1{
@@ -43,8 +43,8 @@
   }
 
   .inputContainer{
-    position: absolute;
-    top: 63%;
+    position: relative;
+    top: 8rem;
     left: 23rem;
     width: 50vw;
     height: 22vh;

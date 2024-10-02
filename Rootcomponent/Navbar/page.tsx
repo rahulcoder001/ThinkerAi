@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react';
 
 const Navbar = () => {
@@ -22,11 +23,11 @@ const Navbar = () => {
 
       {/* Navigation Bar centered */}
       <ul className="flex flex-row justify-center" style={{ listStyleType: 'none' }}>
-        <li style={{ margin: '0 20px', cursor: 'pointer' }}>Products</li>
-        <li style={{ margin: '0 20px', cursor: 'pointer' }}>Pricing</li>
-        <li style={{ margin: '0 20px', cursor: 'pointer' }}>Resources</li>
-        <li style={{ margin: '0 20px', cursor: 'pointer' }}>Partners</li>
-        <li style={{ margin: '0 20px', cursor: 'pointer' }}>Why EDUBOTIX</li>
+        <li style={{ margin: '0 20px', cursor: 'pointer' }}><Link href={"#"}></Link>Products</li>
+        <li style={{ margin: '0 20px', cursor: 'pointer' }}><Link href={"/satyam"}>Content Creation</Link></li>
+        <li style={{ margin: '0 20px', cursor: 'pointer' }}><Link href={"/trans"}>Text Extraction</Link></li>
+        <li style={{ margin: '0 20px', cursor: 'pointer' }}><Link href={"#"}></Link>Partners</li>
+        <li style={{ margin: '0 20px', cursor: 'pointer' }}><Link href={"#"}></Link>Why EDUBOTIX</li>
       </ul>
 
       {/* Spacer to balance the space */}

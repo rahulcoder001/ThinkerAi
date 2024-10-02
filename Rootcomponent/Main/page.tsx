@@ -6,6 +6,7 @@ import { gsap } from "gsap";
 import { MotionPathPlugin } from "gsap/MotionPathPlugin";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 gsap.registerPlugin(MotionPathPlugin);
 
@@ -339,7 +340,7 @@ const Main = () => {
               }}
               onClick={handleClick}
             >
-              Get started
+              <Link href={"/rahul"}>Get started</Link>
             </button>
             <button
               style={{
