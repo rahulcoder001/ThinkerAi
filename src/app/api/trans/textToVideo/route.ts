@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import axios from 'axios';
 
-const API_KEY = '3b2931f60f0340ed8e6210850bca8a65'; // Your API key
+const API_KEY = 'd399fed4fb2f4b569616872a3b3819e6'; // Your API key
 const replicaId = 'r79e1c033f'; // Existing replica ID
 // const customScript = "A magnetic field is a force field created by moving electric charges or magnetic materials, characterized by poles, flux, attraction, repulsion, and its influence on current and induction."; // Your script
 

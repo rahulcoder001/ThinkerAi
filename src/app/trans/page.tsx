@@ -107,7 +107,7 @@ const Page = () => {
 
         {/* top */}
         {loading?(
-          <div className="h-[50vh] bg-[#1a1a1a] w-[50vw] ">
+          <div className="h-[50vh] bg-[#1a1a1a] w-[50vw] text-white ">
             Loading...
           </div>
         ):(

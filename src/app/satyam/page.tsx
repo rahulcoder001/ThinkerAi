@@ -110,7 +110,7 @@ const Page = () => {
 
         {/* top */}
         {loading?(
-          <div className="h-[50vh] bg-[#1a1a1a] w-[50vw] ">
+          <div className="h-[50vh] bg-[#1a1a1a] w-[50vw] text-white">
             Loading...
           </div>
         ):(
@@ -135,7 +135,7 @@ const Page = () => {
         ):(
           <>
            <div className=" m-3  ">
-           <h1 className="text-transparent bg-clip-text bg-gradient-to-r from-white via-blue-700 to-pink-500 font-extrabold text-4xl">
+           <h1 className="text-transparent bg-clip-text bg-gradient-to-r from-white via-blue-700 to-pink-500 font-extrabold text-4xl mt-10">
             Hi There,John <br />
             What Would You like to know?
            </h1>

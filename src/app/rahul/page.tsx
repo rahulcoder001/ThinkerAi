@@ -173,7 +173,7 @@ export default function AnimatedSection() {
       <div className="relativediv w-1/5 rounded-2xl mr-3 relative reveal-animation ">
      
   <p className="absolute bottom-0 p-3 text-white text-xs font-semibold">
-    Try Gcore Inference At The Edge: Speed Up AI, Reduce Latency
+  Edubotix AI at the Edge: Accelerate Learning, Minimize Latency
   </p>
   <div className="horizontal_lines">
   <svg width="300" height="2" viewBox="0 0 740 2" fill="none" xmlns="http://www.w3.org/2000/svg" className="svgpath">
@@ -223,8 +223,7 @@ export default function AnimatedSection() {
     fontWeight: "bolder",
   }}
 >
-  Gcore Inference at the Edge reduces the latency of your ML model output and improves the
-  performance of AI-enabled applications.
+Edubotix empowers teachers with cutting-edge AI tools to enhance their teaching experience.
 </p>
           
           <div className="     rounded-tl-3xl p-3" style={{position:'relative',
@@ -254,13 +253,13 @@ export default function AnimatedSection() {
             </div>
             <div className="flex text-xs  ml-80">
               <p className="flex items-center shadow-lg cursor-pointer px-2 p-2  rounded-full bg-white gap-2 slide-animation">
-                <ImageIcon /> Image Generation
+                <ImageIcon /> Text extraction from video
               </p>
               <p className="flex items-center shadow-lg cursor-pointer px-2 p-2  rounded-full bg-white ml-10 gap-2 slide-animation">
-                <GifIcon /> GIF Generation
+                <GifIcon /> Text Extraction from audio 
               </p>
               <p className="flex items-center shadow-lg cursor-pointer px-2 p-2   rounded-full bg-white ml-10 gap-2 slide-animation">
-                <PptIcon /> PPT Generation
+                <PptIcon /> PDF Generation
               </p>
             </div>
           </div>
