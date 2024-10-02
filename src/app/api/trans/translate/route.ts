@@ -12,10 +12,7 @@ async function generateFormattedContent(prompt: string) {
   try {
     const formattedPrompt = `
       Please generate content on the following topic in a structured format:
-      - Use headings (###) for main sections.
-      - Use subheadings (##) for subsections.
-      - Use bullet points and numbered lists where applicable.
-      
+      - Use headings  then subheadings then contents do dont use any # or * or any special characters
       Topic: ${prompt}
     `;
 

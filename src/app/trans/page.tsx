@@ -15,7 +15,6 @@ const Page = () => {
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [isUploading, setIsUploading] = useState<boolean>(false);
   const audioUrl1 = '/output.mp3';
-  const [videolink , setvideoLink] = useState(null);
   
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
    if (event.target.files && event.target.files.length > 0) {
@@ -81,7 +80,6 @@ const Page = () => {
      });
      const data = await res.json();
      SetResponse(data.content);
-     getvideo(data.content);
      setPdfurl(data.pdfUrl);
      const audioRes = await fetch('/api/trans/textToSpeech', {
        method: 'POST',
@@ -92,16 +90,14 @@ const Page = () => {
      }); 
      const audioData = await audioRes.json();
      setAudioUrl(audioData.audioUrl);
+   
+   
+   
    }catch(err){
    console.log('Error fetching translation or audio',err);
    } finally {
      setLoading(false);
    }
-  }
- async function getvideo(res:string){
-      const resforvideo = await axios.post("/api/trans/textToVideo",{customScript : res})
-      setvideoLink(resforvideo.data.videoStatus);
-
   }
   return (
     <main className="bg-custom-gradient bg-custom-size bg-no-repeat w-full h-screen bg-black">
@@ -118,18 +114,13 @@ const Page = () => {
         )?(
           <div className="mt-5 h-[60vh] bg-[#1a1a1a] w-[80vw] rounded-lg overflow-y-auto ">
   <h1 className="text-white text-[1.2vw] m-4">{response}</h1>
-  <div className="mt-4 m-4 gap-3">
+  <div className="mt-4 m-4">
     <a href={pdfurl} download className={styles.downloadButton}>
       Download PDF
     </a>
     <a href={audioUrl1} download className={styles.downloadButton} style={{ marginLeft: '1rem' }}>
       Download Audio
     </a>
-    {videolink === null ? (
-  <div className="text-white text-xl">Generating video...</div>
-) : (
-  videolink && <a href={videolink} download className={styles.downloadButton}> Download video</a> // Show the video link or status here when available
-)}
   </div>
 </div>
         ):(
@@ -217,10 +208,22 @@ const Page = () => {
   <div className="flex flex-row">
 
   
-  <div>
-    <input onChange={(e)=>{SetLang(e.target.value)}} type="text" placeholder="Enter language" className="border-2 rounded-lg p-1"/>
+  <div className="flex items-center mt-4">
+    <label className="flex items-center cursor-pointer">
+      <input type="file" accept="video/mp4" className="hidden" onChange={handleFileChange} />
+      <span className="bg-blue-500 text-white py-2 px-4 rounded-md shadow-md hover:bg-blue-600 transition">
+        Get Text from Video
+      </span>
+    </label>
   </div>
-  
+  <div className="flex items-center mt-4 ml-5">
+    <label className="flex items-center cursor-pointer">
+      <input type="file" accept="video/mp4" className="hidden" onChange={handleFileChange} />
+      <span className="bg-blue-500 text-white py-2 px-4 rounded-md shadow-md hover:bg-blue-600 transition">
+       Upload Video
+      </span>
+    </label>
+  </div>
   {/* New Button at the Bottom Right */}
   <div className="mt-auto flex ml-auto justify-end">
   <button className="py-2 px-4 transition " onClick={handlesendmessage}>
