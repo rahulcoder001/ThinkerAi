@@ -7,7 +7,7 @@ import Image from "next/image";
 const Page = () => {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [prompt,SetPrompt]=useState('');
-  const [lang,SetLang]=useState('English');
+  const [vi,SetVid]=useState(false);
   const[response,SetResponse]=useState('');
   const [pdfurl, setPdfurl] = useState('');
   const [loading, setLoading] = useState(false);
@@ -25,6 +25,7 @@ const Page = () => {
  };
  
  const handleUpload = async (file: File) => {
+  SetVid(true);
    if (!file) {
      setErrorMessage('Please select a file to upload.');
      return;
@@ -76,7 +77,7 @@ const Page = () => {
          'Content-Type': 'application/json',
        },
        // Correct string interpolation
-       body: JSON.stringify({ prompt: `${prompt} in ${lang}` }),
+       body: JSON.stringify({ prompt: `${prompt} ` }),
      });
      const data = await res.json();
      SetResponse(data.content);
@@ -114,6 +115,7 @@ const Page = () => {
         )?(
           <div className="mt-5 h-[60vh] bg-[#1a1a1a] w-[80vw] rounded-lg overflow-y-auto ">
   <h1 className="text-white text-[1.2vw] m-4">{response}</h1>
+  
   <div className="mt-4 m-4">
     <a href={pdfurl} download className={styles.downloadButton}>
       Download PDF
@@ -196,13 +198,8 @@ const Page = () => {
           </>
         )}
        
-        <div className="w-[50vw] bg-white rounded-2xl text-black outline-none m-4 p-4 shadow-lg flex flex-col">
-  <textarea
-    className="bg-white text-black w-full outline-none resize-none overflow-y-auto h-30" // Adjusted height to h-30
-    placeholder="Ask whatever you want ...."
-    rows={3} // Sets the initial height of the textarea
-    onChange={(e) => SetPrompt(e.target.value)}
-  />
+        <div className="w-[50vw] text-black outline-none m-4 p-4  flex flex-col">
+ 
 
   {/* Upload Video Section */}
   <div className="flex flex-row">
