@@ -17,53 +17,9 @@ const Page = () => {
   const audioUrl1 = '/output.mp3';
   const [videolink , setvideoLink] = useState(null);
   
-  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-   if (event.target.files && event.target.files.length > 0) {
-     const file = event.target.files[0];
-     setSelectedFile(file);
-     handleUpload(file); // Pass the file directly to handleUpload
-   }
- };
  
- const handleUpload = async (file: File) => {
-   if (!file) {
-     setErrorMessage('Please select a file to upload.');
-     return;
-   }
-   setLoading(true);
-   
-   try {
-     setIsUploading(true);
-     setErrorMessage(null);
  
-     const formData = new FormData();
-     formData.append('file', file);
- 
-     // Send the file to the backend API for transcription
-     const response = await axios.post('/api/trans/videoToText', formData, {
-       headers: {
-         'Content-Type': 'multipart/form-data',
-       },
-     });
- 
-     // Log the entire response to debug the issue
-     console.log('API Response:', response);
- 
-     // If the response has valid data, update the transcript
-     if (response.data && typeof response.data.transcript === 'string') {
-       SetResponse(response.data.transcript + response.data.speakerTranscript);
-     } else {
-       setErrorMessage('Transcription failed. Invalid response from the server.');
-     }
- 
-   } catch (error: any) {
-     console.error('Error uploading file:', error.message);
-     setErrorMessage('Error uploading the file. Please try again.');
-   } finally {
-     setIsUploading(false);
-     setLoading(false);
-   }
- };
+
  
  
 
