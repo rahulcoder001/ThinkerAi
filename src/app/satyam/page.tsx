@@ -39,15 +39,15 @@ const Page = () => {
      SetResponse(data.content);
      getvideo(data.content);
      setPdfurl(data.pdfUrl);
-     const audioRes = await fetch('/api/trans/textToSpeech', {
-       method: 'POST',
-       headers: {
-         'Content-Type': 'application/json',
-       },
-       body: JSON.stringify({ text: data.content }), // Sending translated text for TTS
-     }); 
-     const audioData = await audioRes.json();
-     setAudioUrl(audioData.audioUrl);
+    //  const audioRes = await fetch('/api/trans/textToSpeech', {
+    //    method: 'POST',
+    //    headers: {
+    //      'Content-Type': 'application/json',
+    //    },
+    //    body: JSON.stringify({ text: data.content }), // Sending translated text for TTS
+    //  }); 
+    //  const audioData = await audioRes.json();
+    //  setAudioUrl(audioData.audioUrl);
    }catch(err){
    console.log('Error fetching translation or audio',err);
    } finally {
@@ -78,9 +78,9 @@ const Page = () => {
     <a href={pdfurl} download className={styles.downloadButton}>
       Download PDF
     </a>
-    <a href={audioUrl1} download className={styles.downloadButton} style={{ marginLeft: '1rem' }}>
+    {/* <a href={audioUrl1} download className={styles.downloadButton} style={{ marginLeft: '1rem' }}>
       Download Audio
-    </a>
+    </a> */}
     {videolink === null ? (
   <div className="text-white text-xl">Generating video...</div>
 ) : (

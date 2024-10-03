@@ -116,7 +116,7 @@ const styles:any = {
     alignItems: 'center',
     backgroundColor: 'white',
     position: 'absolute',
-    left: '30%', // Start circle from left side
+    left: '30%', // Start circle from left side 
     transform: 'translateX(-30%)', // Adjust for initial centering
   },
   image: {
