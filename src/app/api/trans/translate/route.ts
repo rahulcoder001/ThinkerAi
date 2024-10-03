@@ -11,7 +11,7 @@ const genAI = new GoogleGenerativeAI("AIzaSyCpVhgjjA0n3l-H1bVQvVSC6kG24P2Wwm0");
 async function generateFormattedContent(prompt: string) {
   try {
     const formattedPrompt = `
-      Please generate content in one line
+      Please generate content in structured way
       for ${prompt}
     `;
 

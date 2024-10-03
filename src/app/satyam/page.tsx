@@ -37,7 +37,7 @@ const Page = () => {
      });
      const data = await res.json();
      SetResponse(data.content);
-     getvideo(data.content);
+    //  getvideo(data.content);
      setPdfurl(data.pdfUrl);
     //  const audioRes = await fetch('/api/trans/textToSpeech', {
     //    method: 'POST',
@@ -54,11 +54,11 @@ const Page = () => {
      setLoading(false);
    }
   }
- async function getvideo(res:string){
-      const resforvideo = await axios.post("/api/trans/textToVideo",{customScript : res})
-      setvideoLink(resforvideo.data.videoStatus);
+//  async function getvideo(res:string){
+//       const resforvideo = await axios.post("/api/trans/textToVideo",{customScript : res})
+//       setvideoLink(resforvideo.data.videoStatus);
 
-  }
+//   }
   return (
     <main className="bg-custom-gradient bg-custom-size bg-no-repeat w-full h-screen bg-black">
       <Navbar/>
@@ -81,11 +81,11 @@ const Page = () => {
     {/* <a href={audioUrl1} download className={styles.downloadButton} style={{ marginLeft: '1rem' }}>
       Download Audio
     </a> */}
-    {videolink === null ? (
+    {/* {videolink === null ? (
   <div className="text-white text-xl">Generating video...</div>
 ) : (
   videolink && <a href={videolink} download className={styles.downloadButton}> Download video</a> // Show the video link or status here when available
-)}
+)} */}
   </div>
 </div>
         ):(
