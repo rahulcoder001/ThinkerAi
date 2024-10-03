@@ -1,11 +1,11 @@
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import { ElevenLabsClient, ElevenLabs } from 'elevenlabs';
 import fs from 'fs';
 import path from 'path';
 
-const client = new ElevenLabsClient({ apiKey: 'sk_199492564f936c83e8b1054bc6c2533315d14b2c2e3ffa47' });
+const client = new ElevenLabsClient({ apiKey: 'sk_41a63bf3a0d8490aa2b78767179c629c271449afcb92e4bd' });
 
-export async function POST(req: Request): Promise<Response> {  // Explicitly set the return type as Promise<Response>
+export async function POST(req: NextRequest): Promise<Response> {  // Explicitly set the return type as Promise<Response>
     const { text } = await req.json();
 
     if (!text) {
